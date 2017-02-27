@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ffbb4ea7254849c7962670a91870772c" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Club" Width="1.5" PointX="1.5" PointY="2.5" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Communication" Width="1.5" PointX="9.75" PointY="5.375" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Competition" Width="1.5" PointX="3.75" PointY="29.875" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.ConseilAdministration" Width="1.5" PointX="6" PointY="26.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Contact" Width="1.5" PointX="11.75" PointY="9.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Courriel" Width="1.5" PointX="12" PointY="2.5" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.DatePaiement" Width="1.5" PointX="5.25" PointY="16.125" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Entraineur" Width="1.5" PointX="9.75" PointY="2.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.FichierCommunication" Width="1.5" PointX="12" PointY="5.625" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.FichierComp" Width="1.5" PointX="6" PointY="31.75" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Groupe" Width="1.5" PointX="7.5" PointY="11.625" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.GroupeEntraineur" Width="1.5" PointX="9.75" PointY="12.125" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.HoraireGroupe" Width="1.5" PointX="9.875" PointY="8.375" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Inscription" Width="1.5" PointX="5.25" PointY="18.75" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.LiensUtile" Width="1.5" PointX="13.75" PointY="9.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Niveau" Width="1.5" PointX="3" PointY="7" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.NiveauSession" Width="1.5" PointX="5.25" PointY="11.625" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Offre" Width="1.5" PointX="14.75" PointY="1.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Paiement" Width="1.5" PointX="12" PointY="15.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Partenaire" Width="1.5" PointX="13.75" PointY="12.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Photo" Width="1.5" PointX="6" PointY="29.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.PhotoClub" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_ContenuTexte" Width="1.5" PointX="14.75" PointY="5.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_Jour" Width="1.5" PointX="7.5" PointY="8.375" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_RoleCA" Width="1.5" PointX="3.75" PointY="26.375" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_RoleEntraineur" Width="1.5" PointX="7.5" PointY="15.875" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_Saison" Width="1.5" PointX="0.75" PointY="12.375" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_TypePaiement" Width="1.5" PointX="9.75" PointY="24.125" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Secteur" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Session" Width="1.5" PointX="3" PointY="11.375" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Spectacle" Width="1.5" PointX="14.75" PointY="15.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.sysdiagram" Width="1.5" PointX="0.75" PointY="16.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Texte" Width="1.5" PointX="15.75" PointY="8.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.TypeUtilisateurREF" Width="1.5" PointX="5.25" PointY="4.25" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Utilisateur" Width="1.5" PointX="7.5" PointY="2.875" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.FormulaireInscritption" Width="1.5" PointX="15.75" PointY="11.25" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Competition_Club" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_PhotoClub_Club" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_REF_RoleCA_Club" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Secteur_Club" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Communication_Utilisateur" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_FichierCommunication_Communication" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_FichierComp_Competition" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Photo_Competition" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_ConseilAdministration_REF_RoleCA" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Courriel_Entraineur" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_DatePaiement_Session" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Entraineur_Utilisateur" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Groupe_NiveauSession" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeEntraineur_Groupe" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_HoraireGroupe_Groupe" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeEntraineur_REF_RoleEntraineur" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeEntraineur_Utilisateur" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_HoraireGroupe_REF_Jour" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Inscription_Session" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Niveau_REF_Secteur" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_NiveauSession_Niveau" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_NiveauSession_Session" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Paiement_REF_TypePaiement" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Paiement_Session" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Session_REF_Saison" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Utilisateur_TypeUtilisateurREF" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Representant" Width="1.5" PointX="12" PointY="27.875" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Membre" Width="1.5" PointX="9.75" PointY="15.75" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Paiement_Membre" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Representant_Membre" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.GroupeMembre" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

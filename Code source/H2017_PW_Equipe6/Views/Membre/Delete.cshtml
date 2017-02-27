@@ -1,0 +1,152 @@
+﻿@model H2017_PW_Equipe6.Models.Membre
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Membre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateNaissance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateNaissance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numAssuranceMaladie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numAssuranceMaladie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ville)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ville)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codePostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codePostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.courriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.courriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.allergie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.allergie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codeReinscription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeReinscription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateCourrielReinscription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateCourrielReinscription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paiementEffectuer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paiementEffectuer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.niveauSuivant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.niveauSuivant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idClub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idClub)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.ConseilAdministration>
+
+@{
+    
+    ViewBag.Title = "Conseil d'administration";
+    ViewBag.Type = "Affichage";
+}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid intern-nav">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">@ViewBag.Title</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Afficher</a></li>
+            <li>@Html.ActionLink("Ajouter membre", "Create")</li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>@ViewBag.Type</h2>
+    <div>
+        <h4>@ViewBag.Title</h4>
+        <hr />
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <span>@item.prenomCA @item.nomCA</span>
+                            @Html.ActionLink("Modifier", "Edit/" + item.idCA, "ConseilAdministration", new { @class = "btn btn-default" })
+                        </div>
+                    </div> 
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.descriptionCA)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => item.descriptionCA)
+                        </dd>
+                            
+                        <dt>
+                            @Html.DisplayNameFor(model => model.REF_RoleCA.descriptionROLECA)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => item.REF_RoleCA.descriptionROLECA)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

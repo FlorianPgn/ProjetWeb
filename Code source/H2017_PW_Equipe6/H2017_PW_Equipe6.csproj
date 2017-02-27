@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C091274-15CB-4D46-90B4-AF3154BED964}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>H2017_PW_Equipe6</RootNamespace>
+    <AssemblyName>H2017_PW_Equipe6</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ClubController.cs" />
+    <Compile Include="Controllers\CommunicationController.cs" />
+    <Compile Include="Controllers\CompetitionController.cs" />
+    <Compile Include="Controllers\ConseilAdministrationController.cs" />
+    <Compile Include="Controllers\EntraineurController.cs" />
+    <Compile Include="Controllers\FichierCommunicationController.cs" />
+    <Compile Include="Controllers\GroupeHoraireController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HoraireController.cs" />
+    <Compile Include="Controllers\MembreController.cs" />
+    <Compile Include="Controllers\NiveauController.cs" />
+    <Compile Include="Controllers\SecteurController.cs" />
+    <Compile Include="Controllers\TarifController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Club.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Communication.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Competition.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConseilAdministration.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Courriel.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_SELECT_HORAIRES_Result.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_SELECT_TARIF_Result.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataAnnotations\ConseilAdministration.cs" />
+    <Compile Include="Models\DataAnnotations\Entraineur.cs" />
+    <Compile Include="Models\DataAnnotations\Club.cs" />
+    <Compile Include="Models\DataAnnotations\Communication.cs" />
+    <Compile Include="Models\DataAnnotations\Competition.cs" />
+    <Compile Include="Models\DataAnnotations\NouvelleCommunication.cs" />
+    <Compile Include="Models\DataAnnotations\REF_RoleCA.cs" />
+    <Compile Include="Models\DataAnnotations\Secteur.cs" />
+    <Compile Include="Models\DataAnnotations\Utilisateur.cs" />
+    <Compile Include="Models\DatePaiement.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entraineur.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FichierCommunication.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FichierComp.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormulaireInscritption.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Groupe.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupeEntraineur.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\H2017_PW_Equipe6Entities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>H2017_PW_Equipe6Entities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\H2017_PW_Equipe6Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\H2017_PW_Equipe6Entities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>H2017_PW_Equipe6Entities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HoraireGroupe.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Inscription.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LiensUtile.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Membre.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Niveau.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NiveauSession.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NouvelleCommunication.cs" />
+    <Compile Include="Models\Offre.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paiement.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partenaire.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Photo.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhotoClub.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\P_SELECT_MembreSessionActiveParNiveauSession_Result.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\P_SELECT_MembreSessionActiveParSecteur_Result.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REF_ContenuTexte.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REF_Jour.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REF_RoleCA.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REF_RoleEntraineur.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REF_Saison.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REF_TypePaiement.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Representant.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Secteur.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Session.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Spectacle.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Texte.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeUtilisateurREF.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_SELECT_MembreSessionActiveParSecteur_Result.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilisateur.cs">
+      <DependentUpon>H2017_PW_Equipe6Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-admin\css\bootstrap.css" />
+    <Content Include="Content\bootstrap-admin\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-admin\js\bootstrap.js" />
+    <Content Include="Content\bootstrap-admin\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dist\css\sb-admin-2.css" />
+    <Content Include="Content\dist\css\sb-admin-2.min.css" />
+    <Content Include="Content\media\photo\carrousel\runningMan.jpg" />
+    <Content Include="Content\media\photo\carrousel\troll.jpg" />
+    <Content Include="Content\media\photo\competition\1\1.jpg" />
+    <Content Include="Content\media\photo\competition\1\2.jpg" />
+    <Content Include="Content\media\photo\competition\1\3.jpg" />
+    <Content Include="Content\media\photo\logo.png" />
+    <Content Include="Content\modern-business.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\awesome\css\font-awesome.css" />
+    <Content Include="fonts\awesome\css\font-awesome.min.css" />
+    <Content Include="fonts\awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\HtmlPage1.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\awesome\less\bordered-pulled.less" />
+    <Content Include="fonts\awesome\less\core.less" />
+    <Content Include="fonts\awesome\less\fixed-width.less" />
+    <Content Include="fonts\awesome\less\font-awesome.less" />
+    <Content Include="fonts\awesome\less\icons.less" />
+    <Content Include="fonts\awesome\less\larger.less" />
+    <Content Include="fonts\awesome\less\list.less" />
+    <Content Include="fonts\awesome\less\mixins.less" />
+    <Content Include="fonts\awesome\less\path.less" />
+    <Content Include="fonts\awesome\less\rotated-flipped.less" />
+    <Content Include="fonts\awesome\less\spinning.less" />
+    <Content Include="fonts\awesome\less\stacked.less" />
+    <Content Include="fonts\awesome\less\variables.less" />
+    <Content Include="fonts\awesome\scss\font-awesome.scss" />
+    <Content Include="fonts\awesome\scss\_bordered-pulled.scss" />
+    <Content Include="fonts\awesome\scss\_core.scss" />
+    <Content Include="fonts\awesome\scss\_fixed-width.scss" />
+    <Content Include="fonts\awesome\scss\_icons.scss" />
+    <Content Include="fonts\awesome\scss\_larger.scss" />
+    <Content Include="fonts\awesome\scss\_list.scss" />
+    <Content Include="fonts\awesome\scss\_mixins.scss" />
+    <Content Include="fonts\awesome\scss\_path.scss" />
+    <Content Include="fonts\awesome\scss\_rotated-flipped.scss" />
+    <Content Include="fonts\awesome\scss\_spinning.scss" />
+    <Content Include="fonts\awesome\scss\_stacked.scss" />
+    <Content Include="fonts\awesome\scss\_variables.scss" />
+    <Content Include="Scripts\contact_me.js" />
+    <Content Include="Scripts\flot-data.js" />
+    <Content Include="Scripts\jqBootstrapValidation.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\media\calendrier.pdf" />
+    <EntityDeploy Include="Models\H2017_PW_Equipe6Entities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>H2017_PW_Equipe6Entities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\H2017_PW_Equipe6Entities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>H2017_PW_Equipe6Entities.edmx</DependentUpon>
+      <LastGenOutput>H2017_PW_Equipe6Entities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\H2017_PW_Equipe6Entities.edmx.diagram">
+      <DependentUpon>H2017_PW_Equipe6Entities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\H2017_PW_Equipe6Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>H2017_PW_Equipe6Entities.edmx</DependentUpon>
+      <LastGenOutput>H2017_PW_Equipe6Entities.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jquery.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\metisMenu\metisMenu.css" />
+    <Content Include="Scripts\metisMenu\metisMenu.js" />
+    <Content Include="Scripts\metisMenu\metisMenu.min.css" />
+    <Content Include="Scripts\metisMenu\metisMenu.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\morris-data.js" />
+    <Content Include="Scripts\morrisjs\morris.css" />
+    <Content Include="Scripts\morrisjs\morris.js" />
+    <Content Include="Scripts\morrisjs\morris.min.js" />
+    <Content Include="Scripts\raphael\raphael.js" />
+    <Content Include="Scripts\raphael\raphael.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\sb-admin-2.js" />
+    <Content Include="Scripts\sb-admin-2.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Secteur\Create.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml">
+      <BrowseToURL>~/Contact</BrowseToURL>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml">
+      <BrowseToURL>~/</BrowseToURL>
+    </Content>
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_AdministratorLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Club\Index.cshtml" />
+    <Content Include="Views\Club\Contact.cshtml" />
+    <Content Include="Views\Communication\Index.cshtml" />
+    <Content Include="Views\ConseilAdministration\Index.cshtml" />
+    <Content Include="Views\Entraineur\Create.cshtml" />
+    <Content Include="Views\Entraineur\Delete.cshtml" />
+    <Content Include="Views\Entraineur\Details.cshtml" />
+    <Content Include="Views\Entraineur\Edit.cshtml" />
+    <Content Include="Views\Entraineur\Index.cshtml">
+      <BrowseToURL>~/Entraineur</BrowseToURL>
+    </Content>
+    <Content Include="Views\Competition\Create.cshtml" />
+    <Content Include="Views\Competition\Delete.cshtml" />
+    <Content Include="Views\Competition\Details.cshtml" />
+    <Content Include="Views\Competition\Edit.cshtml" />
+    <Content Include="Views\Competition\Index.cshtml" />
+    <Content Include="Views\Home\APropos.cshtml">
+      <BrowseToURL>~/APropos</BrowseToURL>
+    </Content>
+    <Content Include="Views\Club\EditDescription.cshtml" />
+    <Content Include="Views\Club\DetailsDescription.cshtml" />
+    <Content Include="Views\Club\Delete.cshtml" />
+    <Content Include="Views\Club\Details.cshtml" />
+    <Content Include="Views\Club\Edit.cshtml" />
+    <Content Include="Views\Competition\Liste.cshtml" />
+    <Content Include="Views\Secteur\Delete.cshtml" />
+    <Content Include="Views\Secteur\Details.cshtml" />
+    <Content Include="Views\Secteur\Edit.cshtml" />
+    <Content Include="Views\Secteur\Index.cshtml" />
+    <Content Include="Views\Niveau\Create.cshtml" />
+    <Content Include="Views\Niveau\Delete.cshtml" />
+    <Content Include="Views\Niveau\Details.cshtml" />
+    <Content Include="Views\Niveau\Edit.cshtml" />
+    <Content Include="Views\Niveau\Liste.cshtml" />
+    <Content Include="Views\Club\Create.cshtml" />
+    <Content Include="Views\Club\Description.cshtml" />
+    <Content Include="Views\Communication\Create.cshtml" />
+    <Content Include="Views\Communication\Details.cshtml" />
+    <Content Include="Views\Communication\Liste.cshtml" />
+    <Content Include="Views\Club\EditCoord.cshtml" />
+    <Content Include="Views\Club\DetailsCoord.cshtml" />
+    <Content Include="Views\Niveau\Index.cshtml" />
+    <Content Include="Views\GroupeHoraire\Create.cshtml" />
+    <Content Include="Views\GroupeHoraire\Delete.cshtml" />
+    <Content Include="Views\GroupeHoraire\Details.cshtml" />
+    <Content Include="Views\GroupeHoraire\Edit.cshtml" />
+    <Content Include="Views\GroupeHoraire\Liste.cshtml" />
+    <Content Include="Views\Horaire\Index.cshtml" />
+    <Content Include="Views\Horaire\Create.cshtml" />
+    <Content Include="Views\Horaire\Delete.cshtml" />
+    <Content Include="Views\Horaire\Details.cshtml" />
+    <Content Include="Views\Horaire\Edit.cshtml" />
+    <Content Include="Views\Horaire\Liste.cshtml" />
+    <Content Include="Views\ConseilAdministration\Create.cshtml" />
+    <Content Include="Views\ConseilAdministration\Delete.cshtml" />
+    <Content Include="Views\ConseilAdministration\Details.cshtml" />
+    <Content Include="Views\ConseilAdministration\Edit.cshtml" />
+    <Content Include="Views\Tarif\Create.cshtml" />
+    <Content Include="Views\Tarif\Delete.cshtml" />
+    <Content Include="Views\Tarif\Details.cshtml" />
+    <Content Include="Views\Tarif\Edit.cshtml" />
+    <Content Include="Views\Tarif\Index.cshtml" />
+    <Content Include="Views\Membre\Create.cshtml" />
+    <Content Include="Views\Membre\Delete.cshtml" />
+    <Content Include="Views\Membre\Details.cshtml" />
+    <Content Include="Views\Membre\Edit.cshtml" />
+    <Content Include="Views\Membre\Index.cshtml" />
+    <Content Include="Views\Communication\_ModalEdit.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Communication\_ModalDelete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3963</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3887/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

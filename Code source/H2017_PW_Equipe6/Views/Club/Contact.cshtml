@@ -1,0 +1,26 @@
+﻿@model H2017_PW_Equipe6.Models.Club
+
+@{
+    ViewBag.Title = "Contactez-nous";
+}
+
+<div class="container">
+    <h2>Coordonnées du club</h2>
+
+    <div class="well col-md-8">
+        <p>
+            <i class="fa fw-fa fa-envelope"></i> <b>Information générales: </b><a href="mailto:@Model.courriel">@Model.courriel</a>
+        </p>
+        <p>
+            <i class="fa fw-fa fa-location-arrow"></i> <b>Adresse postal: </b>
+        </p>
+        <div class="col-lg-offset-1" style="vertical-align: central;">
+            <p>
+                <div>@Model.nom</div>
+                <div>@Model.adresse</div>
+                <div>@Model.ville, @Model.province @Model.codePostal</div>
+            </p>
+        </div>
+    </div>
+
+</div>

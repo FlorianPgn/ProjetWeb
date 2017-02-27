@@ -1,0 +1,66 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Competition>
+
+@{
+    ViewBag.Title = "Liste";
+}
+
+<div class="container-fluid">
+    <h2>Liste des compétitions</h2>
+
+    <p>
+        @Html.ActionLink("Ajouter une compétition", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomCOMP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateDebutCOMP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateFinCOMP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adresseCOMP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descriptionCOMP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.urlFichierResultatsCOMP)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomCOMP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateDebutCOMP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateFinCOMP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adresseCOMP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descriptionCOMP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urlFichierResultatsCOMP)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.idCOMP }) |
+                    @Html.ActionLink("Détails", "Details", new { id = item.idCOMP }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.idCOMP })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

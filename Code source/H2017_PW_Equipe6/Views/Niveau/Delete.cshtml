@@ -1,0 +1,56 @@
+﻿@model H2017_PW_Equipe6.Models.Niveau
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Suppression d'un niveau</h2>
+
+<h3>Voulez vous vraiment supprimer ce niveau ?</h3>
+<div>
+    <h4>Niveau</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomNIVEAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomNIVEAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordreAffichageNIVEAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordreAffichageNIVEAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descriptionNIVEAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptionNIVEAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secteur.nomSECTEUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secteur.nomSECTEUR)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Retour", "Index")
+        </div>
+    }
+</div>

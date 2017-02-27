@@ -1,0 +1,78 @@
+﻿@model H2017_PW_Equipe6.Models.Competition
+
+@{
+    ViewBag.Title = "Modification";
+}
+
+<div class="container">
+    <h2>Modification</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Competition</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="nomCOMP">Nom</label>
+                <div class="col-md-10">
+                    <input class="text-box col-md-4" id="nomCOMP" name="nomCOMP" type="text" value="@Model.nomCOMP"/>
+                    @Html.ValidationMessageFor(model => model.nomCOMP)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="dateDebutCOMP">Date de début</label>
+                <div class="col-md-10">
+                    <input class="text-box col-md-4" id="dateDebutCOMP" name="dateDebutCOMP" type="text" value="@Model.dateDebutCOMP" />
+                    @Html.ValidationMessageFor(model => model.dateDebutCOMP)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="dateFinCOMP">Date de fin</label>
+                <div class="col-md-10">
+                    <input class="text-box col-md-4" id="dateFinCOMP" name="dateFinCOMP" type="text" value="@Model.dateFinCOMP" />
+                    @Html.ValidationMessageFor(model => model.dateFinCOMP)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="adresseCOMP">adresse</label>
+                <div class="col-md-10">
+                    <textarea class="text-box col-md-4" id="adresseCOMP" name="adresseCOMP" rows="3">@Model.adresseCOMP</textarea>
+                    @Html.ValidationMessageFor(model => model.adresseCOMP)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="descriptionCOMP">description</label>
+                <div class="col-md-10">
+                    <textarea class="text-box col-md-4" id="descriptionCOMP" name="descriptionCOMP" rows="3">@Model.descriptionCOMP</textarea>
+                    @Html.ValidationMessageFor(model => model.descriptionCOMP)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="urlFichierResultatsCOMP">URL de fichier de résultats</label>
+                <div class="col-md-10">
+                    <input class="text-box col-md-4" id="urlFichierResultatsCOMP" name="urlFichierResultatsCOMP" type="text" value="@Model.urlFichierResultatsCOMP" />
+                    @Html.ValidationMessageFor(model => model.urlFichierResultatsCOMP)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Sauvegarder" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Retour à la liste", "Liste")
+    </div>
+</div>

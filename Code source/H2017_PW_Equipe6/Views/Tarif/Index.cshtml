@@ -1,0 +1,69 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.NiveauSession>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.duree)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tarif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.affiliation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.competitions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateSuppression)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Niveau.nomNIVEAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session.detailsAncienMembre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.duree)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tarif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.affiliation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.competitions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateSuppression)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Niveau.nomNIVEAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session.detailsAncienMembre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idNIVEAU_SESSION }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idNIVEAU_SESSION }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idNIVEAU_SESSION })
+        </td>
+    </tr>
+}
+
+</table>

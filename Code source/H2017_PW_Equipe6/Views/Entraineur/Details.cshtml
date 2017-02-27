@@ -1,0 +1,73 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Entraineur>
+
+@{
+    ViewBag.Title = "Entraîneurs";
+}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">@ViewBag.Title</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="">Afficher</a></li>
+            <li>@Html.ActionLink("Créer un nouveau entraîneur", "Create", "Entraineur")</li>
+
+        </ul>
+    </div>
+</nav>
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+<tr>
+    <th>
+        Nom
+    </th>
+    <th>
+        Prenom
+    </th>
+    <th>
+        Description
+    </th>
+    <th>
+        Courriels
+    </th>
+    <th>
+        Actif
+    </th>
+    <th></th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @item.Utilisateur.nomUTIL
+        </td>
+        <td>
+            @item.Utilisateur.prenomUTIL
+        </td>
+        <td>
+            @item.descriptionENT
+        </td>
+        <td>
+            @item.Utilisateur.courrielUTIL
+        </td>
+        <td>
+            @if (item.estActifENT){
+                <input type="checkbox" disabled checked>
+            }
+            else {
+                <input type="checkbox" disabled>
+            }
+                    
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id = item.idENT }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.idENT })
+        </td>
+    </tr>
+}
+</table>
+

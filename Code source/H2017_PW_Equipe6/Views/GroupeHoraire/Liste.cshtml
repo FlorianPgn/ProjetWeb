@@ -1,0 +1,45 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.HoraireGroupe>
+
+@{
+    ViewBag.Title = "Liste";
+}
+
+<h2>Horaire des groupes</h2>
+
+<p>
+    @Html.ActionLink("Créer nouvelle horaire", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Horaire
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Groupe.descriptionGRP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REF_Jour.nomJOUR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.horaireDebut à @item.horaireFin
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Groupe.NiveauSession.Niveau.descriptionNIVEAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REF_Jour.nomJOUR)
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id=item.idHOR }) |
+            @Html.ActionLink("Détails", "Details", new { id=item.idHOR }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.idHOR })
+        </td>
+    </tr>
+}
+
+</table>

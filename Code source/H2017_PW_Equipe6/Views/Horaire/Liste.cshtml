@@ -1,0 +1,51 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.HoraireGroupe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.horaireDebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horaireFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Groupe.NiveauSession.Niveau.descriptionNIVEAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REF_Jour.nomJOUR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.horaireDebut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horaireFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Groupe.NiveauSession.Niveau.descriptionNIVEAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REF_Jour.nomJOUR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idHOR }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idHOR }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idHOR })
+        </td>
+    </tr>
+}
+
+</table>

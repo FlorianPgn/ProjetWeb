@@ -1,0 +1,50 @@
+﻿@model H2017_PW_Equipe6.Models.HoraireGroupe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HoraireGroupe</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.horaireDebut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horaireDebut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horaireFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horaireFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Groupe.descriptionGRP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Groupe.descriptionGRP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REF_Jour.nomJOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REF_Jour.nomJOUR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idHOR }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

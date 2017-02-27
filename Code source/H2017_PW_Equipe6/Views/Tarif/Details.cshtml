@@ -1,0 +1,74 @@
+﻿@model H2017_PW_Equipe6.Models.NiveauSession
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NiveauSession</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.duree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.affiliation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.affiliation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.competitions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.competitions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateSuppression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateSuppression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Niveau.nomNIVEAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Niveau.nomNIVEAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.detailsAncienMembre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.detailsAncienMembre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idNIVEAU_SESSION }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

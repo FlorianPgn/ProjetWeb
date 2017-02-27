@@ -1,0 +1,104 @@
+﻿@model H2017_PW_Equipe6.Models.Club
+
+@{
+    ViewBag.Title = "Coordonnées du club";
+    ViewBag.Type = "Coordonnées";
+}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            @Html.ActionLink(((String)@ViewBag.Title), "DetailsCoord", "Club", new {@class="navbar-brand"})
+        </div>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Afficher", "DetailsCoord", "Club")</li>
+            <li class="active"><a href="#">Modifier</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h2>Editeur</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>@ViewBag.Type</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.nom, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.nom)
+                    @Html.ValidationMessageFor(model => model.nom)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.adresse, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.adresse)
+                    @Html.ValidationMessageFor(model => model.adresse)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ville, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ville)
+                    @Html.ValidationMessageFor(model => model.ville)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.province, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.province)
+                    @Html.ValidationMessageFor(model => model.province)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.codePostal, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.codePostal)
+                    @Html.ValidationMessageFor(model => model.codePostal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.numTelephone, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.numTelephone)
+                    @Html.ValidationMessageFor(model => model.numTelephone)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.courriel, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.courriel)
+                    @Html.ValidationMessageFor(model => model.courriel)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <hr />
+
+    <div>
+        @Html.ActionLink("Retour à l'affichage", "DetailsCoord")
+    </div>
+
+</div>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b6fb3b11015b45689bb5decb8fff306f" Name="Diagram1">
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Club" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Communication" Width="1.5" PointX="11.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Competition" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.ConseilAdministration" Width="1.5" PointX="11" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Contact" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Courriel" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.DatePaiement" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Description" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Entraineur" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.FichierCompetition" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Groupe" Width="1.5" PointX="13.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.GroupeEntraineur" Width="1.5" PointX="15.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.GroupeMembre" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.HoraireGroupe" Width="1.5" PointX="15.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Inscription" Width="1.5" PointX="8.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.LiensUtile" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Membre" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Niveau" Width="1.5" PointX="9" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.NiveauSession" Width="1.5" PointX="11.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Offre" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Paiement" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Partenaire" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.PhotoCompetition" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.PhotoSpectacle" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_ContenuTexte" Width="1.5" PointX="11.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_Jour" Width="1.5" PointX="13.5" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_RoleCA" Width="1.5" PointX="8.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_RoleEntraineur" Width="1.5" PointX="13.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_Saison" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_Secteur" Width="1.5" PointX="6.75" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.REF_TypePaiement" Width="1.5" PointX="6" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Session" Width="1.5" PointX="6" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Spectacle" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.sysdiagram" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Texte" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.TypeUtilisateurREF" Width="1.5" PointX="6.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.Utilisateur" Width="1.5" PointX="9" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="H2017_PW_Equipe6Model.FormulaireInscritption" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Entraineur_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Membre_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Session_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Utilisateur_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Communication_Utilisateur" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_FichierCompetition_Competition" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_PhotoCompetition_Competition" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_ConseilAdministration_REF_RoleCA" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Courriel_Entraineur" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_DatePaiement_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Entraineur_Utilisateur" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Groupe_NiveauSession" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeEntraineur_Groupe" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeMembre_Groupe" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_HoraireGroupe_Groupe" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeEntraineur_REF_RoleEntraineur" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeEntraineur_Utilisateur" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_GroupeMembre_Membre" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_HoraireGroupe_REF_Jour" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Inscription_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Paiement_Membre" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Niveau_REF_Secteur" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_NiveauSession_Niveau" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_NiveauSession_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Paiement_REF_TypePaiement" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Paiement_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_PhotoSpectacle_Spectacle" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Session_REF_Saison" ManuallyRouted="false" />
+        <AssociationConnector Association="H2017_PW_Equipe6Model.FK_Utilisateur_TypeUtilisateurREF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

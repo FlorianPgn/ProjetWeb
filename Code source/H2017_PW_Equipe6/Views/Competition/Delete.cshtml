@@ -1,0 +1,72 @@
+﻿@model H2017_PW_Equipe6.Models.Competition
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Competition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomCOMP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomCOMP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateDebutCOMP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDebutCOMP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateFinCOMP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateFinCOMP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adresseCOMP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adresseCOMP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descriptionCOMP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptionCOMP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urlFichierResultatsCOMP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlFichierResultatsCOMP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à la liste", "Liste")
+        </div>
+    }
+</div>

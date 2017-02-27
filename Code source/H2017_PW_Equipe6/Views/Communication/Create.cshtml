@@ -1,0 +1,167 @@
+﻿@model H2017_PW_Equipe6.Models.NouvelleCommunication
+
+@{
+    ViewBag.Title = "Liste des communiqués";
+    ViewBag.Type = "Communiqués";
+}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid intern-nav">
+        <div class="navbar-header">
+            @Html.ActionLink((string)ViewBag.Title, "Details", null, new { @class = "navbar-brand" })
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Nouveau communiqué</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Envoyer un communiqué</h2>
+
+    @using (Html.BeginForm("Create", "Communication", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Message</h3>
+                </div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="communication_titreCOM">Titre</label>
+                        <div class="col-md-10">
+                            <input class="text-box col-md-10" id="communication_titreCOM" name="communication.titreCOM" type="text" />
+                            @Html.ValidationMessageFor(model => model.communication.titreCOM)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="communication_contenuCOM">Message</label>
+                        <div class="col-md-10">
+                            <textarea class="text-box col-md-10" id="communication_contenuCOM" name="communication.contenuCOM" rows="12"></textarea>
+                            @Html.ValidationMessageFor(model => model.communication.contenuCOM)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="fileUpload">Pièces jointes</label>
+                        <div class="col-md-10">
+                            <input type='file' multiple id='fileUpload' name="files" />
+                        </div>
+                    </div>
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Destinataires courriel (facultatif)</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="col-md-4">
+                    <label class="control-label">Par secteur</label>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="-1" class="checkboxes-secteur" onclick="checkCheckboxesBellow(this)" />
+                                Tout les secteurs
+                            </label>
+                        </div>
+
+                        @foreach (var secteur in @ViewBag.secteurs)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="@secteur.idSECTEUR" name="SelectedSecteurId" class="checkboxes-secteur" onclick="uncheckTopCheckbox(this)" />
+                                    @secteur.nomSECTEUR
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="control-label">Par niveau</label>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="-1" class="checkboxes-niveau" onclick="checkCheckboxesBellow(this)" />
+                                Tout les niveaux
+                            </label>
+                        </div>
+
+                        @foreach (var niveau in @ViewBag.niveaux)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="@niveau.idNIVEAU_SESSION" name="SelectedNiveauId" class="checkboxes-niveau" onclick="uncheckTopCheckbox(this)" />
+                                    @niveau.Niveau.nomNIVEAU
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="control-label">Par groupe</label>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="-1" class="checkboxes-groupe" onclick="checkCheckboxesBellow(this)" />
+                                Tout les groupes
+                            </label>
+                        </div>
+
+                        @foreach (var groupe in @ViewBag.groupes)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="@groupe.idGRP" name="SelectedGroupId" class="checkboxes-groupe" onclick="uncheckTopCheckbox(this)" />
+                                    @(@groupe.NiveauSession.Niveau.nomNIVEAU + " - " + @groupe.descriptionGRP)
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div><!-- panel-body -->
+        </div><!-- panel -->
+        
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Envoyer" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        
+    } <!--fin du formulaire-->
+    
+</div>
+
+<script>
+    function checkCheckboxesBellow(checkbox)
+    {
+        var checkboxClass = $(checkbox).attr('class');
+        if (checkbox.checked)
+        {
+            $('.'+ checkboxClass).prop('checked', true);
+        }
+        else
+        {
+            $('.' + checkboxClass).prop('checked', false);
+        }
+    }
+
+    function uncheckTopCheckbox(checkbox)
+    {
+        var checkboxClass = $(checkbox).attr('class');
+        $('.' + checkboxClass +':first').prop('checked', false);
+    }
+</script>

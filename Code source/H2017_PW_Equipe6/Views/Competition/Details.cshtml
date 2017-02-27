@@ -1,0 +1,68 @@
+﻿@model H2017_PW_Equipe6.Models.Competition
+
+@{
+    ViewBag.Title = "Détails";
+}
+
+<div class="container">
+    <h2>Détails</h2>
+
+    <div>
+        <h4>Compétition</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Nom
+            </dt>
+
+            <dd>
+                @Model.nomCOMP
+            </dd>
+
+            <dt>
+                Date de début
+            </dt>
+
+            <dd>
+                @Model.dateDebutCOMP.ToShortDateString()
+            </dd>
+
+            <dt>
+                Date de fin
+            </dt>
+
+            <dd>
+                @Model.dateFinCOMP.ToShortDateString()
+            </dd>
+
+            <dt>
+                Adresse
+            </dt>
+
+            <dd>
+                @Model.adresseCOMP
+            </dd>
+
+            <dt>
+                Description
+            </dt>
+
+            <dd>
+                @Model.descriptionCOMP
+            </dd>
+
+            <dt>
+                URL de fichier de résultats
+            </dt>
+
+            <dd>
+                @Model.urlFichierResultatsCOMP
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Modifier", "Edit", new { id = Model.idCOMP }) |
+        @Html.ActionLink("Retour à la liste", "Liste")
+    </p>
+</div>

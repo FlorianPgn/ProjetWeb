@@ -1,0 +1,60 @@
+﻿@model H2017_PW_Equipe6.Models.HoraireGroupe
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>HoraireGroupe</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idGRP, "idGRP", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idGRP", String.Empty)
+                @Html.ValidationMessageFor(model => model.idGRP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idJOUR, "idJOUR", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idJOUR", String.Empty)
+                @Html.ValidationMessageFor(model => model.idJOUR)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.horaireDebut, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.horaireDebut)
+                @Html.ValidationMessageFor(model => model.horaireDebut)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.horaireFin, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.horaireFin)
+                @Html.ValidationMessageFor(model => model.horaireFin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

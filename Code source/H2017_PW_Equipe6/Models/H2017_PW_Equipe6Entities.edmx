@@ -1,0 +1,2713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="H2017_PW_Equipe6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="province" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="codePostal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numTelephone" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="courriel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Communication">
+          <Key>
+            <PropertyRef Name="idCOM" />
+          </Key>
+          <Property Name="idCOM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titreCOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contenuCOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateCOM" Type="date" Nullable="false" />
+          <Property Name="idUTIL" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="idCOMP" />
+          </Key>
+          <Property Name="idCOMP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomCOMP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateDebutCOMP" Type="date" Nullable="false" />
+          <Property Name="dateFinCOMP" Type="date" Nullable="false" />
+          <Property Name="adresseCOMP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descriptionCOMP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="urlFichierResultatsCOMP" Type="varchar" MaxLength="50" />
+          <Property Name="idCLUB" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConseilAdministration">
+          <Key>
+            <PropertyRef Name="idCA" />
+          </Key>
+          <Property Name="idCA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomCA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenomCA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descriptionCA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idROLECA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="idCON" />
+          </Key>
+          <Property Name="idCON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="courrielCON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nomEtablissementCON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codePostaleCON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="villePostaleCON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nomEtablissementMembreCON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rueMembreCON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="villeMembreCON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courriel">
+          <Key>
+            <PropertyRef Name="idCourriel" />
+          </Key>
+          <Property Name="idCourriel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idENT" Type="int" Nullable="false" />
+          <Property Name="dateCourriel" Type="date" Nullable="false" />
+          <Property Name="contenuCourriel" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DatePaiement">
+          <Key>
+            <PropertyRef Name="idDATEPAIEMENT" />
+          </Key>
+          <Property Name="idDATEPAIEMENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSESSION" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entraineur">
+          <Key>
+            <PropertyRef Name="idENT" />
+          </Key>
+          <Property Name="idENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUTIL" Type="int" Nullable="false" />
+          <Property Name="descriptionENT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estActifENT" Type="bit" Nullable="false" />
+          <Property Name="photoENT" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FichierCommunication">
+          <Key>
+            <PropertyRef Name="idFICHIERCOM" />
+          </Key>
+          <Property Name="idFICHIERCOM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pathFichier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idCOMMUNICATION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FichierComp">
+          <Key>
+            <PropertyRef Name="idFICHIERCOMP" />
+          </Key>
+          <Property Name="idFICHIERCOMP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pathFichier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idCOMPETITION" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'H2017_PW_Equipe6.dbo.FormulaireInscritption' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="FormulaireInscritption">
+          <Key>
+            <PropertyRef Name="ficheInscriptionPAR" />
+            <PropertyRef Name="dateDebutInscriptionPAR" />
+            <PropertyRef Name="dateFinInscription" />
+            <PropertyRef Name="idClub" />
+          </Key>
+          <Property Name="ficheInscriptionPAR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateDebutInscriptionPAR" Type="date" Nullable="false" />
+          <Property Name="dateFinInscription" Type="date" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groupe">
+          <Key>
+            <PropertyRef Name="idGRP" />
+          </Key>
+          <Property Name="idGRP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idNIVSESS" Type="int" Nullable="false" />
+          <Property Name="descriptionGRP" Type="varchar" MaxLength="50" />
+          <Property Name="photoGRP" Type="varchar" MaxLength="150" />
+          <Property Name="dateCreationGRP" Type="date" Nullable="false" />
+          <Property Name="dateSuppression" Type="date" />
+          <Property Name="valideNiveauGRP" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupeEntraineur">
+          <Key>
+            <PropertyRef Name="idGRP" />
+            <PropertyRef Name="idUTIL" />
+          </Key>
+          <Property Name="idGRP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUTIL" Type="int" Nullable="false" />
+          <Property Name="idRoleEnt" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupeMembre">
+          <Key>
+            <PropertyRef Name="idGROUPE" />
+            <PropertyRef Name="idMEMBRE" />
+          </Key>
+          <Property Name="idGROUPE" Type="int" Nullable="false" />
+          <Property Name="idMEMBRE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HoraireGroupe">
+          <Key>
+            <PropertyRef Name="idHOR" />
+          </Key>
+          <Property Name="idHOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idGRP" Type="int" Nullable="false" />
+          <Property Name="idJOUR" Type="int" Nullable="false" />
+          <Property Name="horaireDebut" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="horaireFin" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inscription">
+          <Key>
+            <PropertyRef Name="idINSCRIPTION" />
+          </Key>
+          <Property Name="idINSCRIPTION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSESSION" Type="int" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sexe" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="dateNaissance" Type="date" Nullable="false" />
+          <Property Name="numAssuranceMaladie" Type="int" Nullable="false" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="casierPostal" Type="nvarchar" MaxLength="50" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="courriel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="allergie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="nomRepresentant1" Type="nvarchar" MaxLength="50" />
+          <Property Name="prenomRepresentant1" Type="nvarchar" MaxLength="50" />
+          <Property Name="roleRepresentant1" Type="nvarchar" MaxLength="50" />
+          <Property Name="courrielRepresentant1" Type="nvarchar" MaxLength="50" />
+          <Property Name="nomRepresentant2" Type="nvarchar" MaxLength="50" />
+          <Property Name="prenomRepresentant2" Type="nvarchar" MaxLength="50" />
+          <Property Name="roleRepresentant2" Type="nvarchar" MaxLength="50" />
+          <Property Name="courrielRepresentant2" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateCreation" Type="date" Nullable="false" />
+          <Property Name="codeReinscription" Type="nvarchar" MaxLength="50" />
+          <Property Name="meContacter" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LiensUtiles">
+          <Key>
+            <PropertyRef Name="idRES" />
+          </Key>
+          <Property Name="idRES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descriptionRES" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="urlRES" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Membre">
+          <Key>
+            <PropertyRef Name="idMEMBRE" />
+          </Key>
+          <Property Name="idMEMBRE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="prenom" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="sexe" Type="bit" Nullable="false" />
+          <Property Name="dateNaissance" Type="date" Nullable="false" />
+          <Property Name="numAssuranceMaladie" Type="int" Nullable="false" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="codePostal" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="courriel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="allergie" Type="nvarchar" MaxLength="50" />
+          <Property Name="codeReinscription" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="dateCourrielReinscription" Type="date" Nullable="false" />
+          <Property Name="paiementEffectuer" Type="bit" Nullable="false" />
+          <Property Name="niveauSuivant" Type="int" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Niveau">
+          <Key>
+            <PropertyRef Name="idNIVEAU" />
+          </Key>
+          <Property Name="idNIVEAU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeSECTEUR" Type="int" Nullable="false" />
+          <Property Name="nomNIVEAU" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ordreAffichageNIVEAU" Type="int" Nullable="false" />
+          <Property Name="descriptionNIVEAU" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NiveauSession">
+          <Key>
+            <PropertyRef Name="idNIVEAU_SESSION" />
+          </Key>
+          <Property Name="idNIVEAU_SESSION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idNIVEAU" Type="int" Nullable="false" />
+          <Property Name="idSESSION" Type="int" Nullable="false" />
+          <Property Name="duree" Type="int" Nullable="false" />
+          <Property Name="tarif" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="affiliation" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="competitions" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dateSuppression" Type="date" />
+        </EntityType>
+        <EntityType Name="Offre">
+          <Key>
+            <PropertyRef Name="idOFF" />
+          </Key>
+          <Property Name="idOFF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateOFF" Type="date" Nullable="false" />
+          <Property Name="titreOFF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descriptionOFF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="profilOFF" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estActif" Type="bit" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paiement">
+          <Key>
+            <PropertyRef Name="idPAIEMENT" />
+          </Key>
+          <Property Name="idPAIEMENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMEMBRE" Type="int" Nullable="false" />
+          <Property Name="idSESSION" Type="int" Nullable="false" />
+          <Property Name="idTYPEPAIEMENT" Type="int" Nullable="false" />
+          <Property Name="dateSaisie" Type="date" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="montant" Type="money" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="encaisse" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Partenaire">
+          <Key>
+            <PropertyRef Name="idPAR" />
+          </Key>
+          <Property Name="idPAR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomPAR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="urlPAR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="logoPAR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="idPHOTO" />
+          </Key>
+          <Property Name="idPHOTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pathFichier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idCOMPETITION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoClub">
+          <Key>
+            <PropertyRef Name="idPHOTOCLUB" />
+          </Key>
+          <Property Name="idPHOTOCLUB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pathFichier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idCLUB" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_ContenuTexte">
+          <Key>
+            <PropertyRef Name="idRCP" />
+          </Key>
+          <Property Name="idRCP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titreRCP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="refTXT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_Jour">
+          <Key>
+            <PropertyRef Name="idJOUR" />
+          </Key>
+          <Property Name="idJOUR" Type="int" Nullable="false" />
+          <Property Name="nomJOUR" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_RoleCA">
+          <Key>
+            <PropertyRef Name="idROLECA" />
+          </Key>
+          <Property Name="idROLECA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descriptionROLECA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_RoleEntraineur">
+          <Key>
+            <PropertyRef Name="idRoleEnt" />
+          </Key>
+          <Property Name="idRoleEnt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descriptionRoleEnt" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_Saison">
+          <Key>
+            <PropertyRef Name="idSAISON" />
+          </Key>
+          <Property Name="idSAISON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_TypePaiement">
+          <Key>
+            <PropertyRef Name="idTYPEPAIEMENT" />
+          </Key>
+          <Property Name="idTYPEPAIEMENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Representant">
+          <Key>
+            <PropertyRef Name="idREPRESENTANT" />
+          </Key>
+          <Property Name="idREPRESENTANT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="12" />
+          <Property Name="courriel" Type="nvarchar" MaxLength="100" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idMEMBRE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Secteur">
+          <Key>
+            <PropertyRef Name="idSECTEUR" />
+          </Key>
+          <Property Name="idSECTEUR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomSECTEUR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descriptionSECTEUR" Type="varchar" MaxLength="1200" Nullable="false" />
+          <Property Name="idCLUB" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="idSESSION" />
+          </Key>
+          <Property Name="idSESSION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSAISON" Type="int" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
+          <Property Name="estActif" Type="bit" Nullable="false" />
+          <Property Name="dejaEteActif" Type="bit" Nullable="false" />
+          <Property Name="inscriptionEnCours" Type="bit" Nullable="false" />
+          <Property Name="dateDebut" Type="date" Nullable="false" />
+          <Property Name="detailsAncienMembre" Type="nvarchar" MaxLength="50" />
+          <Property Name="detailsNouveauMembre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Spectacle">
+          <Key>
+            <PropertyRef Name="idSPEC" />
+          </Key>
+          <Property Name="idSPEC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateSPEC" Type="date" Nullable="false" />
+          <Property Name="heureSPEC" Type="datetime" Nullable="false" />
+          <Property Name="lieuSPEC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="titreSPEC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prixSPEC" Type="float" Nullable="false" />
+          <Property Name="afficheSPEC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Texte">
+          <Key>
+            <PropertyRef Name="idTXT" />
+          </Key>
+          <Property Name="idTXT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contenuTXT" Type="text" Nullable="false" />
+          <Property Name="titreTXT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeUtilisateurREF">
+          <Key>
+            <PropertyRef Name="typeUTIL" />
+          </Key>
+          <Property Name="typeUTIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descriptionUTIL" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUTIL" />
+          </Key>
+          <Property Name="idUTIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeUTIL" Type="int" Nullable="false" />
+          <Property Name="entrainerChefUTIL" Type="bit" Nullable="false" />
+          <Property Name="nomUTIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenomUTIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="courrielUTIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresseUTIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="villeUTIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codePostalUTIL" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="telephoneUTIL" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="mdpUTIL" Type="char" MaxLength="88" Nullable="false" />
+          <Property Name="dateSuppression" Type="date" />
+          <Property Name="idCLUB" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Communication_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Communication" Type="Self.Communication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUTIL" />
+            </Principal>
+            <Dependent Role="Communication">
+              <PropertyRef Name="idUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competition_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Competition">
+              <PropertyRef Name="idCLUB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConseilAdministration_REF_RoleCA">
+          <End Role="REF_RoleCA" Type="Self.REF_RoleCA" Multiplicity="1" />
+          <End Role="ConseilAdministration" Type="Self.ConseilAdministration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_RoleCA">
+              <PropertyRef Name="idROLECA" />
+            </Principal>
+            <Dependent Role="ConseilAdministration">
+              <PropertyRef Name="idROLECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courriel_Entraineur">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="1" />
+          <End Role="Courriel" Type="Self.Courriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="idENT" />
+            </Principal>
+            <Dependent Role="Courriel">
+              <PropertyRef Name="idENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatePaiement_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="DatePaiement" Type="Self.DatePaiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="DatePaiement">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entraineur_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUTIL" />
+            </Principal>
+            <Dependent Role="Entraineur">
+              <PropertyRef Name="idUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FichierCommunication_Communication">
+          <End Role="Communication" Type="Self.Communication" Multiplicity="1" />
+          <End Role="FichierCommunication" Type="Self.FichierCommunication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Communication">
+              <PropertyRef Name="idCOM" />
+            </Principal>
+            <Dependent Role="FichierCommunication">
+              <PropertyRef Name="idCOMMUNICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FichierComp_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+          <End Role="FichierComp" Type="Self.FichierComp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="idCOMP" />
+            </Principal>
+            <Dependent Role="FichierComp">
+              <PropertyRef Name="idCOMPETITION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groupe_NiveauSession">
+          <End Role="NiveauSession" Type="Self.NiveauSession" Multiplicity="1" />
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NiveauSession">
+              <PropertyRef Name="idNIVEAU_SESSION" />
+            </Principal>
+            <Dependent Role="Groupe">
+              <PropertyRef Name="idNIVSESS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeEntraineur_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="GroupeEntraineur" Type="Self.GroupeEntraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="idGRP" />
+            </Principal>
+            <Dependent Role="GroupeEntraineur">
+              <PropertyRef Name="idGRP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeEntraineur_REF_RoleEntraineur">
+          <End Role="REF_RoleEntraineur" Type="Self.REF_RoleEntraineur" Multiplicity="1" />
+          <End Role="GroupeEntraineur" Type="Self.GroupeEntraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_RoleEntraineur">
+              <PropertyRef Name="idRoleEnt" />
+            </Principal>
+            <Dependent Role="GroupeEntraineur">
+              <PropertyRef Name="idRoleEnt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeEntraineur_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="GroupeEntraineur" Type="Self.GroupeEntraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUTIL" />
+            </Principal>
+            <Dependent Role="GroupeEntraineur">
+              <PropertyRef Name="idUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeMembre_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="GroupeMembre" Type="Self.GroupeMembre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="idGRP" />
+            </Principal>
+            <Dependent Role="GroupeMembre">
+              <PropertyRef Name="idGROUPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeMembre_Membre">
+          <End Role="Membre" Type="Self.Membre" Multiplicity="1" />
+          <End Role="GroupeMembre" Type="Self.GroupeMembre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="idMEMBRE" />
+            </Principal>
+            <Dependent Role="GroupeMembre">
+              <PropertyRef Name="idMEMBRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoraireGroupe_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="HoraireGroupe" Type="Self.HoraireGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="idGRP" />
+            </Principal>
+            <Dependent Role="HoraireGroupe">
+              <PropertyRef Name="idGRP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoraireGroupe_REF_Jour">
+          <End Role="REF_Jour" Type="Self.REF_Jour" Multiplicity="1" />
+          <End Role="HoraireGroupe" Type="Self.HoraireGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_Jour">
+              <PropertyRef Name="idJOUR" />
+            </Principal>
+            <Dependent Role="HoraireGroupe">
+              <PropertyRef Name="idJOUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inscription_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="Inscription" Type="Self.Inscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="Inscription">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Niveau_REF_Secteur">
+          <End Role="Secteur" Type="Self.Secteur" Multiplicity="1" />
+          <End Role="Niveau" Type="Self.Niveau" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secteur">
+              <PropertyRef Name="idSECTEUR" />
+            </Principal>
+            <Dependent Role="Niveau">
+              <PropertyRef Name="TypeSECTEUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NiveauSession_Niveau">
+          <End Role="Niveau" Type="Self.Niveau" Multiplicity="1" />
+          <End Role="NiveauSession" Type="Self.NiveauSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Niveau">
+              <PropertyRef Name="idNIVEAU" />
+            </Principal>
+            <Dependent Role="NiveauSession">
+              <PropertyRef Name="idNIVEAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NiveauSession_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="NiveauSession" Type="Self.NiveauSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="NiveauSession">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paiement_Membre">
+          <End Role="Membre" Type="Self.Membre" Multiplicity="1" />
+          <End Role="Paiement" Type="Self.Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="idMEMBRE" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="idMEMBRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paiement_REF_TypePaiement">
+          <End Role="REF_TypePaiement" Type="Self.REF_TypePaiement" Multiplicity="1" />
+          <End Role="Paiement" Type="Self.Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_TypePaiement">
+              <PropertyRef Name="idTYPEPAIEMENT" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="idTYPEPAIEMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paiement_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="Paiement" Type="Self.Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="idCOMP" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="idCOMPETITION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoClub_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="PhotoClub" Type="Self.PhotoClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhotoClub">
+              <PropertyRef Name="idCLUB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REF_RoleCA_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="REF_RoleCA" Type="Self.REF_RoleCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REF_RoleCA">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Representant_Membre">
+          <End Role="Membre" Type="Self.Membre" Multiplicity="1" />
+          <End Role="Representant" Type="Self.Representant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="idMEMBRE" />
+            </Principal>
+            <Dependent Role="Representant">
+              <PropertyRef Name="idMEMBRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Secteur_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="Secteur" Type="Self.Secteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Secteur">
+              <PropertyRef Name="idCLUB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_REF_Saison">
+          <End Role="REF_Saison" Type="Self.REF_Saison" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_Saison">
+              <PropertyRef Name="idSAISON" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="idSAISON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_TypeUtilisateurREF">
+          <End Role="TypeUtilisateurREF" Type="Self.TypeUtilisateurREF" Multiplicity="1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeUtilisateurREF">
+              <PropertyRef Name="typeUTIL" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="typeUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="C_SELECT_HORAIRES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSecteur" Type="int" Mode="In" />
+          <Parameter Name="idSESSION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="C_SELECT_TARIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="typeSecteur" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="P_INSERT_fichierCommunication" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nom" Type="nvarchar" Mode="In" />
+          <Parameter Name="pathfichier" Type="nvarchar" Mode="In" />
+          <Parameter Name="idcommunication" Type="int" Mode="In" />
+        </Function>
+        <Function Name="P_INSERT_photo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idcompetition" Type="int" Mode="In" />
+          <Parameter Name="pathfichier" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="P_SELECT_MembreSessionActiveParNiveauSession" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idniveausession" Type="int" Mode="In" />
+        </Function>
+        <Function Name="P_SELECT_MembreSessionActiveParSecteur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idsecteur" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="H2017_PW_Equipe6ModelStoreContainer">
+          <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Communication" EntityType="Self.Communication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConseilAdministration" EntityType="Self.ConseilAdministration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courriel" EntityType="Self.Courriel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatePaiement" EntityType="Self.DatePaiement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entraineur" EntityType="Self.Entraineur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FichierCommunication" EntityType="Self.FichierCommunication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FichierComp" EntityType="Self.FichierComp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groupe" EntityType="Self.Groupe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupeEntraineur" EntityType="Self.GroupeEntraineur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupeMembre" EntityType="Self.GroupeMembre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HoraireGroupe" EntityType="Self.HoraireGroupe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inscription" EntityType="Self.Inscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiensUtiles" EntityType="Self.LiensUtiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Membre" EntityType="Self.Membre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Niveau" EntityType="Self.Niveau" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NiveauSession" EntityType="Self.NiveauSession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offre" EntityType="Self.Offre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paiement" EntityType="Self.Paiement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partenaire" EntityType="Self.Partenaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoClub" EntityType="Self.PhotoClub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REF_ContenuTexte" EntityType="Self.REF_ContenuTexte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REF_Jour" EntityType="Self.REF_Jour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REF_RoleCA" EntityType="Self.REF_RoleCA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REF_RoleEntraineur" EntityType="Self.REF_RoleEntraineur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REF_Saison" EntityType="Self.REF_Saison" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REF_TypePaiement" EntityType="Self.REF_TypePaiement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Representant" EntityType="Self.Representant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Secteur" EntityType="Self.Secteur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spectacle" EntityType="Self.Spectacle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Texte" EntityType="Self.Texte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeUtilisateurREF" EntityType="Self.TypeUtilisateurREF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormulaireInscritption" EntityType="Self.FormulaireInscritption" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FormulaireInscritption].[ficheInscriptionPAR] AS [ficheInscriptionPAR], 
+    [FormulaireInscritption].[dateDebutInscriptionPAR] AS [dateDebutInscriptionPAR], 
+    [FormulaireInscritption].[dateFinInscription] AS [dateFinInscription], 
+    [FormulaireInscritption].[idClub] AS [idClub]
+    FROM [dbo].[FormulaireInscritption] AS [FormulaireInscritption]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Communication_Utilisateur" Association="Self.FK_Communication_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Communication" EntitySet="Communication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competition_Club" Association="Self.FK_Competition_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="Competition" EntitySet="Competition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConseilAdministration_REF_RoleCA" Association="Self.FK_ConseilAdministration_REF_RoleCA">
+            <End Role="REF_RoleCA" EntitySet="REF_RoleCA" />
+            <End Role="ConseilAdministration" EntitySet="ConseilAdministration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courriel_Entraineur" Association="Self.FK_Courriel_Entraineur">
+            <End Role="Entraineur" EntitySet="Entraineur" />
+            <End Role="Courriel" EntitySet="Courriel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatePaiement_Session" Association="Self.FK_DatePaiement_Session">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="DatePaiement" EntitySet="DatePaiement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entraineur_Utilisateur" Association="Self.FK_Entraineur_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Entraineur" EntitySet="Entraineur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FichierCommunication_Communication" Association="Self.FK_FichierCommunication_Communication">
+            <End Role="Communication" EntitySet="Communication" />
+            <End Role="FichierCommunication" EntitySet="FichierCommunication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FichierComp_Competition" Association="Self.FK_FichierComp_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="FichierComp" EntitySet="FichierComp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groupe_NiveauSession" Association="Self.FK_Groupe_NiveauSession">
+            <End Role="NiveauSession" EntitySet="NiveauSession" />
+            <End Role="Groupe" EntitySet="Groupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeEntraineur_Groupe" Association="Self.FK_GroupeEntraineur_Groupe">
+            <End Role="Groupe" EntitySet="Groupe" />
+            <End Role="GroupeEntraineur" EntitySet="GroupeEntraineur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeEntraineur_REF_RoleEntraineur" Association="Self.FK_GroupeEntraineur_REF_RoleEntraineur">
+            <End Role="REF_RoleEntraineur" EntitySet="REF_RoleEntraineur" />
+            <End Role="GroupeEntraineur" EntitySet="GroupeEntraineur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeEntraineur_Utilisateur" Association="Self.FK_GroupeEntraineur_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="GroupeEntraineur" EntitySet="GroupeEntraineur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeMembre_Groupe" Association="Self.FK_GroupeMembre_Groupe">
+            <End Role="Groupe" EntitySet="Groupe" />
+            <End Role="GroupeMembre" EntitySet="GroupeMembre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeMembre_Membre" Association="Self.FK_GroupeMembre_Membre">
+            <End Role="Membre" EntitySet="Membre" />
+            <End Role="GroupeMembre" EntitySet="GroupeMembre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoraireGroupe_Groupe" Association="Self.FK_HoraireGroupe_Groupe">
+            <End Role="Groupe" EntitySet="Groupe" />
+            <End Role="HoraireGroupe" EntitySet="HoraireGroupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoraireGroupe_REF_Jour" Association="Self.FK_HoraireGroupe_REF_Jour">
+            <End Role="REF_Jour" EntitySet="REF_Jour" />
+            <End Role="HoraireGroupe" EntitySet="HoraireGroupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inscription_Session" Association="Self.FK_Inscription_Session">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="Inscription" EntitySet="Inscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Niveau_REF_Secteur" Association="Self.FK_Niveau_REF_Secteur">
+            <End Role="Secteur" EntitySet="Secteur" />
+            <End Role="Niveau" EntitySet="Niveau" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NiveauSession_Niveau" Association="Self.FK_NiveauSession_Niveau">
+            <End Role="Niveau" EntitySet="Niveau" />
+            <End Role="NiveauSession" EntitySet="NiveauSession" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NiveauSession_Session" Association="Self.FK_NiveauSession_Session">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="NiveauSession" EntitySet="NiveauSession" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paiement_Membre" Association="Self.FK_Paiement_Membre">
+            <End Role="Membre" EntitySet="Membre" />
+            <End Role="Paiement" EntitySet="Paiement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paiement_REF_TypePaiement" Association="Self.FK_Paiement_REF_TypePaiement">
+            <End Role="REF_TypePaiement" EntitySet="REF_TypePaiement" />
+            <End Role="Paiement" EntitySet="Paiement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paiement_Session" Association="Self.FK_Paiement_Session">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="Paiement" EntitySet="Paiement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_Competition" Association="Self.FK_Photo_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoClub_Club" Association="Self.FK_PhotoClub_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="PhotoClub" EntitySet="PhotoClub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REF_RoleCA_Club" Association="Self.FK_REF_RoleCA_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="REF_RoleCA" EntitySet="REF_RoleCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Representant_Membre" Association="Self.FK_Representant_Membre">
+            <End Role="Membre" EntitySet="Membre" />
+            <End Role="Representant" EntitySet="Representant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Secteur_Club" Association="Self.FK_Secteur_Club">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="Secteur" EntitySet="Secteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_REF_Saison" Association="Self.FK_Session_REF_Saison">
+            <End Role="REF_Saison" EntitySet="REF_Saison" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_TypeUtilisateurREF" Association="Self.FK_Utilisateur_TypeUtilisateurREF">
+            <End Role="TypeUtilisateurREF" EntitySet="TypeUtilisateurREF" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="H2017_PW_Equipe6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="province" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codePostal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="numTelephone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="courriel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Competitions" Relationship="Self.FK_Competition_Club" FromRole="Club" ToRole="Competition" />
+          <NavigationProperty Name="PhotoClubs" Relationship="Self.FK_PhotoClub_Club" FromRole="Club" ToRole="PhotoClub" />
+          <NavigationProperty Name="Secteurs" Relationship="Self.FK_Secteur_Club" FromRole="Club" ToRole="Secteur" />
+          <NavigationProperty Name="REF_RoleCA" Relationship="H2017_PW_Equipe6Model.FK_REF_RoleCA_Club" FromRole="Club" ToRole="REF_RoleCA" />
+        </EntityType>
+        <EntityType Name="Communication">
+          <Key>
+            <PropertyRef Name="idCOM" />
+          </Key>
+          <Property Name="idCOM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreCOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contenuCOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateCOM" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idUTIL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Communication_Utilisateur" FromRole="Communication" ToRole="Utilisateur" />
+          <NavigationProperty Name="FichierCommunications" Relationship="H2017_PW_Equipe6Model.FK_FichierCommunication_Communication" FromRole="Communication" ToRole="FichierCommunication" />
+        </EntityType>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="idCOMP" />
+          </Key>
+          <Property Name="idCOMP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomCOMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateDebutCOMP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dateFinCOMP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="adresseCOMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descriptionCOMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="urlFichierResultatsCOMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idCLUB" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_Competition_Club" FromRole="Competition" ToRole="Club" />
+          <NavigationProperty Name="FichierComps" Relationship="Self.FK_FichierComp_Competition" FromRole="Competition" ToRole="FichierComp" />
+          <NavigationProperty Name="Photos" Relationship="Self.FK_Photo_Competition" FromRole="Competition" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="ConseilAdministration">
+          <Key>
+            <PropertyRef Name="idCA" />
+          </Key>
+          <Property Name="idCA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomCA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenomCA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descriptionCA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idROLECA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="REF_RoleCA" Relationship="Self.FK_ConseilAdministration_REF_RoleCA" FromRole="ConseilAdministration" ToRole="REF_RoleCA" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="idCON" />
+          </Key>
+          <Property Name="idCON" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="courrielCON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomEtablissementCON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codePostaleCON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="villePostaleCON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomEtablissementMembreCON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rueMembreCON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="villeMembreCON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courriel">
+          <Key>
+            <PropertyRef Name="idCourriel" />
+          </Key>
+          <Property Name="idCourriel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idENT" Type="Int32" Nullable="false" />
+          <Property Name="dateCourriel" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="contenuCourriel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Entraineur" Relationship="Self.FK_Courriel_Entraineur" FromRole="Courriel" ToRole="Entraineur" />
+        </EntityType>
+        <EntityType Name="DatePaiement">
+          <Key>
+            <PropertyRef Name="idDATEPAIEMENT" />
+          </Key>
+          <Property Name="idDATEPAIEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSESSION" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_DatePaiement_Session" FromRole="DatePaiement" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Entraineur">
+          <Key>
+            <PropertyRef Name="idENT" />
+          </Key>
+          <Property Name="idENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUTIL" Type="Int32" Nullable="false" />
+          <Property Name="descriptionENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estActifENT" Type="Boolean" Nullable="false" />
+          <Property Name="photoENT" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Courriels" Relationship="Self.FK_Courriel_Entraineur" FromRole="Entraineur" ToRole="Courriel" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Entraineur_Utilisateur" FromRole="Entraineur" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="FichierComp">
+          <Key>
+            <PropertyRef Name="idFICHIERCOMP" />
+          </Key>
+          <Property Name="idFICHIERCOMP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pathFichier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idCOMPETITION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competition" Relationship="Self.FK_FichierComp_Competition" FromRole="FichierComp" ToRole="Competition" />
+        </EntityType>
+        <EntityType Name="Groupe">
+          <Key>
+            <PropertyRef Name="idGRP" />
+          </Key>
+          <Property Name="idGRP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idNIVSESS" Type="Int32" Nullable="false" />
+          <Property Name="descriptionGRP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="photoGRP" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreationGRP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dateSuppression" Type="DateTime" Precision="0" />
+          <Property Name="valideNiveauGRP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GroupeEntraineurs" Relationship="Self.FK_GroupeEntraineur_Groupe" FromRole="Groupe" ToRole="GroupeEntraineur" />
+          <NavigationProperty Name="HoraireGroupes" Relationship="Self.FK_HoraireGroupe_Groupe" FromRole="Groupe" ToRole="HoraireGroupe" />
+          <NavigationProperty Name="NiveauSession" Relationship="H2017_PW_Equipe6Model.FK_Groupe_NiveauSession" FromRole="Groupe" ToRole="NiveauSession" />
+          <NavigationProperty Name="Membres" Relationship="H2017_PW_Equipe6Model.GroupeMembre" FromRole="Groupe" ToRole="Membre" />
+        </EntityType>
+        <EntityType Name="GroupeEntraineur">
+          <Key>
+            <PropertyRef Name="idGRP" />
+            <PropertyRef Name="idUTIL" />
+          </Key>
+          <Property Name="idGRP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUTIL" Type="Int32" Nullable="false" />
+          <Property Name="idRoleEnt" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Groupe" Relationship="Self.FK_GroupeEntraineur_Groupe" FromRole="GroupeEntraineur" ToRole="Groupe" />
+          <NavigationProperty Name="REF_RoleEntraineur" Relationship="Self.FK_GroupeEntraineur_REF_RoleEntraineur" FromRole="GroupeEntraineur" ToRole="REF_RoleEntraineur" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_GroupeEntraineur_Utilisateur" FromRole="GroupeEntraineur" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="HoraireGroupe">
+          <Key>
+            <PropertyRef Name="idHOR" />
+          </Key>
+          <Property Name="idHOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idGRP" Type="Int32" Nullable="false" />
+          <Property Name="idJOUR" Type="Int32" Nullable="false" />
+          <Property Name="horaireDebut" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="horaireFin" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Groupe" Relationship="Self.FK_HoraireGroupe_Groupe" FromRole="HoraireGroupe" ToRole="Groupe" />
+          <NavigationProperty Name="REF_Jour" Relationship="Self.FK_HoraireGroupe_REF_Jour" FromRole="HoraireGroupe" ToRole="REF_Jour" />
+        </EntityType>
+        <EntityType Name="Inscription">
+          <Key>
+            <PropertyRef Name="idINSCRIPTION" />
+          </Key>
+          <Property Name="idINSCRIPTION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSESSION" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sexe" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="dateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="numAssuranceMaladie" Type="Int32" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="casierPostal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="courriel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="allergie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nomRepresentant1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prenomRepresentant1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roleRepresentant1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="courrielRepresentant1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nomRepresentant2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prenomRepresentant2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roleRepresentant2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="courrielRepresentant2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateCreation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="codeReinscription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meContacter" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_Inscription_Session" FromRole="Inscription" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="LiensUtile">
+          <Key>
+            <PropertyRef Name="idRES" />
+          </Key>
+          <Property Name="idRES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descriptionRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="urlRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Niveau">
+          <Key>
+            <PropertyRef Name="idNIVEAU" />
+          </Key>
+          <Property Name="idNIVEAU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeSECTEUR" Type="Int32" Nullable="false" />
+          <Property Name="descriptionNIVEAU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ordreAffichageNIVEAU" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Secteur" Relationship="Self.FK_Niveau_REF_Secteur" FromRole="Niveau" ToRole="Secteur" />
+          <NavigationProperty Name="NiveauSessions" Relationship="H2017_PW_Equipe6Model.FK_NiveauSession_Niveau" FromRole="Niveau" ToRole="NiveauSession" />
+          <Property Name="nomNIVEAU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Offre">
+          <Key>
+            <PropertyRef Name="idOFF" />
+          </Key>
+          <Property Name="idOFF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateOFF" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="titreOFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descriptionOFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="profilOFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estActif" Type="Boolean" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paiement">
+          <Key>
+            <PropertyRef Name="idPAIEMENT" />
+          </Key>
+          <Property Name="idPAIEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMEMBRE" Type="Int32" Nullable="false" />
+          <Property Name="idSESSION" Type="Int32" Nullable="false" />
+          <Property Name="idTYPEPAIEMENT" Type="Int32" Nullable="false" />
+          <Property Name="dateSaisie" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="montant" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="encaisse" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="REF_TypePaiement" Relationship="Self.FK_Paiement_REF_TypePaiement" FromRole="Paiement" ToRole="REF_TypePaiement" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_Paiement_Session" FromRole="Paiement" ToRole="Session" />
+          <NavigationProperty Name="Membre" Relationship="H2017_PW_Equipe6Model.FK_Paiement_Membre" FromRole="Paiement" ToRole="Membre" />
+        </EntityType>
+        <EntityType Name="Partenaire">
+          <Key>
+            <PropertyRef Name="idPAR" />
+          </Key>
+          <Property Name="idPAR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomPAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="urlPAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="logoPAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="idPHOTO" />
+          </Key>
+          <Property Name="idPHOTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pathFichier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idCOMPETITION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competition" Relationship="Self.FK_Photo_Competition" FromRole="Photo" ToRole="Competition" />
+        </EntityType>
+        <EntityType Name="PhotoClub">
+          <Key>
+            <PropertyRef Name="idPHOTOCLUB" />
+          </Key>
+          <Property Name="idPHOTOCLUB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pathFichier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idCLUB" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_PhotoClub_Club" FromRole="PhotoClub" ToRole="Club" />
+        </EntityType>
+        <EntityType Name="REF_ContenuTexte">
+          <Key>
+            <PropertyRef Name="idRCP" />
+          </Key>
+          <Property Name="idRCP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreRCP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="refTXT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REF_Jour">
+          <Key>
+            <PropertyRef Name="idJOUR" />
+          </Key>
+          <Property Name="idJOUR" Type="Int32" Nullable="false" />
+          <Property Name="nomJOUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HoraireGroupes" Relationship="Self.FK_HoraireGroupe_REF_Jour" FromRole="REF_Jour" ToRole="HoraireGroupe" />
+        </EntityType>
+        <EntityType Name="REF_RoleCA">
+          <Key>
+            <PropertyRef Name="idROLECA" />
+          </Key>
+          <Property Name="idROLECA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descriptionROLECA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConseilAdministrations" Relationship="Self.FK_ConseilAdministration_REF_RoleCA" FromRole="REF_RoleCA" ToRole="ConseilAdministration" />
+          <NavigationProperty Name="Club" Relationship="H2017_PW_Equipe6Model.FK_REF_RoleCA_Club" FromRole="REF_RoleCA" ToRole="Club" />
+        </EntityType>
+        <EntityType Name="REF_RoleEntraineur">
+          <Key>
+            <PropertyRef Name="idRoleEnt" />
+          </Key>
+          <Property Name="idRoleEnt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descriptionRoleEnt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GroupeEntraineurs" Relationship="Self.FK_GroupeEntraineur_REF_RoleEntraineur" FromRole="REF_RoleEntraineur" ToRole="GroupeEntraineur" />
+        </EntityType>
+        <EntityType Name="REF_Saison">
+          <Key>
+            <PropertyRef Name="idSAISON" />
+          </Key>
+          <Property Name="idSAISON" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_REF_Saison" FromRole="REF_Saison" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="REF_TypePaiement">
+          <Key>
+            <PropertyRef Name="idTYPEPAIEMENT" />
+          </Key>
+          <Property Name="idTYPEPAIEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Paiements" Relationship="Self.FK_Paiement_REF_TypePaiement" FromRole="REF_TypePaiement" ToRole="Paiement" />
+        </EntityType>
+        <EntityType Name="Secteur">
+          <Key>
+            <PropertyRef Name="idSECTEUR" />
+          </Key>
+          <Property Name="idSECTEUR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomSECTEUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descriptionSECTEUR" Type="String" MaxLength="1200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idCLUB" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_Secteur_Club" FromRole="Secteur" ToRole="Club" />
+          <NavigationProperty Name="Niveaux" Relationship="Self.FK_Niveau_REF_Secteur" FromRole="Secteur" ToRole="Niveau" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="idSESSION" />
+          </Key>
+          <Property Name="idSESSION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSAISON" Type="Int32" Nullable="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
+          <Property Name="estActif" Type="Boolean" Nullable="false" />
+          <Property Name="dejaEteActif" Type="Boolean" Nullable="false" />
+          <Property Name="inscriptionEnCours" Type="Boolean" Nullable="false" />
+          <Property Name="dateDebut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="detailsAncienMembre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="detailsNouveauMembre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DatePaiements" Relationship="Self.FK_DatePaiement_Session" FromRole="Session" ToRole="DatePaiement" />
+          <NavigationProperty Name="Inscriptions" Relationship="Self.FK_Inscription_Session" FromRole="Session" ToRole="Inscription" />
+          <NavigationProperty Name="Paiements" Relationship="Self.FK_Paiement_Session" FromRole="Session" ToRole="Paiement" />
+          <NavigationProperty Name="REF_Saison" Relationship="Self.FK_Session_REF_Saison" FromRole="Session" ToRole="REF_Saison" />
+          <NavigationProperty Name="NiveauSessions" Relationship="H2017_PW_Equipe6Model.FK_NiveauSession_Session" FromRole="Session" ToRole="NiveauSession" />
+        </EntityType>
+        <EntityType Name="Spectacle">
+          <Key>
+            <PropertyRef Name="idSPEC" />
+          </Key>
+          <Property Name="idSPEC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateSPEC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="heureSPEC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lieuSPEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="titreSPEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prixSPEC" Type="Double" Nullable="false" />
+          <Property Name="afficheSPEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Texte">
+          <Key>
+            <PropertyRef Name="idTXT" />
+          </Key>
+          <Property Name="idTXT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contenuTXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="titreTXT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeUtilisateurREF">
+          <Key>
+            <PropertyRef Name="typeUTIL" />
+          </Key>
+          <Property Name="typeUTIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descriptionUTIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Utilisateurs" Relationship="Self.FK_Utilisateur_TypeUtilisateurREF" FromRole="TypeUtilisateurREF" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUTIL" />
+          </Key>
+          <Property Name="idUTIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeUTIL" Type="Int32" Nullable="false" />
+          <Property Name="entrainerChefUTIL" Type="Boolean" Nullable="false" />
+          <Property Name="nomUTIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenomUTIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courrielUTIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adresseUTIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="villeUTIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codePostalUTIL" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="telephoneUTIL" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mdpUTIL" Type="String" MaxLength="88" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dateSuppression" Type="DateTime" Precision="0" />
+          <Property Name="idCLUB" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Communications" Relationship="Self.FK_Communication_Utilisateur" FromRole="Utilisateur" ToRole="Communication" />
+          <NavigationProperty Name="Entraineurs" Relationship="Self.FK_Entraineur_Utilisateur" FromRole="Utilisateur" ToRole="Entraineur" />
+          <NavigationProperty Name="GroupeEntraineurs" Relationship="Self.FK_GroupeEntraineur_Utilisateur" FromRole="Utilisateur" ToRole="GroupeEntraineur" />
+          <NavigationProperty Name="TypeUtilisateurREF" Relationship="Self.FK_Utilisateur_TypeUtilisateurREF" FromRole="Utilisateur" ToRole="TypeUtilisateurREF" />
+        </EntityType>
+        <EntityType Name="FormulaireInscritption">
+          <Key>
+            <PropertyRef Name="ficheInscriptionPAR" />
+            <PropertyRef Name="dateDebutInscriptionPAR" />
+            <PropertyRef Name="dateFinInscription" />
+            <PropertyRef Name="idClub" />
+          </Key>
+          <Property Name="ficheInscriptionPAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateDebutInscriptionPAR" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dateFinInscription" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Competition_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Competition">
+              <PropertyRef Name="idCLUB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoClub_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="PhotoClub" Type="Self.PhotoClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhotoClub">
+              <PropertyRef Name="idCLUB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Secteur_Club">
+          <End Role="Club" Type="Self.Club" Multiplicity="1" />
+          <End Role="Secteur" Type="Self.Secteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Secteur">
+              <PropertyRef Name="idCLUB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Communication_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Communication" Type="Self.Communication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUTIL" />
+            </Principal>
+            <Dependent Role="Communication">
+              <PropertyRef Name="idUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FichierComp_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+          <End Role="FichierComp" Type="Self.FichierComp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="idCOMP" />
+            </Principal>
+            <Dependent Role="FichierComp">
+              <PropertyRef Name="idCOMPETITION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="idCOMP" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="idCOMPETITION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConseilAdministration_REF_RoleCA">
+          <End Role="REF_RoleCA" Type="Self.REF_RoleCA" Multiplicity="1" />
+          <End Role="ConseilAdministration" Type="Self.ConseilAdministration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_RoleCA">
+              <PropertyRef Name="idROLECA" />
+            </Principal>
+            <Dependent Role="ConseilAdministration">
+              <PropertyRef Name="idROLECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courriel_Entraineur">
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="1" />
+          <End Role="Courriel" Type="Self.Courriel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entraineur">
+              <PropertyRef Name="idENT" />
+            </Principal>
+            <Dependent Role="Courriel">
+              <PropertyRef Name="idENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DatePaiement_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="DatePaiement" Type="Self.DatePaiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="DatePaiement">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entraineur_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Entraineur" Type="Self.Entraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUTIL" />
+            </Principal>
+            <Dependent Role="Entraineur">
+              <PropertyRef Name="idUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeEntraineur_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="GroupeEntraineur" Type="Self.GroupeEntraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="idGRP" />
+            </Principal>
+            <Dependent Role="GroupeEntraineur">
+              <PropertyRef Name="idGRP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoraireGroupe_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="HoraireGroupe" Type="Self.HoraireGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="idGRP" />
+            </Principal>
+            <Dependent Role="HoraireGroupe">
+              <PropertyRef Name="idGRP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeEntraineur_REF_RoleEntraineur">
+          <End Role="REF_RoleEntraineur" Type="Self.REF_RoleEntraineur" Multiplicity="1" />
+          <End Role="GroupeEntraineur" Type="Self.GroupeEntraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_RoleEntraineur">
+              <PropertyRef Name="idRoleEnt" />
+            </Principal>
+            <Dependent Role="GroupeEntraineur">
+              <PropertyRef Name="idRoleEnt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupeEntraineur_Utilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="GroupeEntraineur" Type="Self.GroupeEntraineur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUTIL" />
+            </Principal>
+            <Dependent Role="GroupeEntraineur">
+              <PropertyRef Name="idUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoraireGroupe_REF_Jour">
+          <End Role="REF_Jour" Type="Self.REF_Jour" Multiplicity="1" />
+          <End Role="HoraireGroupe" Type="Self.HoraireGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_Jour">
+              <PropertyRef Name="idJOUR" />
+            </Principal>
+            <Dependent Role="HoraireGroupe">
+              <PropertyRef Name="idJOUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inscription_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="Inscription" Type="Self.Inscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="Inscription">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Niveau_REF_Secteur">
+          <End Role="Secteur" Type="Self.Secteur" Multiplicity="1" />
+          <End Role="Niveau" Type="Self.Niveau" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secteur">
+              <PropertyRef Name="idSECTEUR" />
+            </Principal>
+            <Dependent Role="Niveau">
+              <PropertyRef Name="TypeSECTEUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paiement_REF_TypePaiement">
+          <End Role="REF_TypePaiement" Type="Self.REF_TypePaiement" Multiplicity="1" />
+          <End Role="Paiement" Type="Self.Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_TypePaiement">
+              <PropertyRef Name="idTYPEPAIEMENT" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="idTYPEPAIEMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paiement_Session">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="Paiement" Type="Self.Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_REF_Saison">
+          <End Role="REF_Saison" Type="Self.REF_Saison" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REF_Saison">
+              <PropertyRef Name="idSAISON" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="idSAISON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilisateur_TypeUtilisateurREF">
+          <End Role="TypeUtilisateurREF" Type="Self.TypeUtilisateurREF" Multiplicity="1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeUtilisateurREF">
+              <PropertyRef Name="typeUTIL" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="typeUTIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="H2017_PW_Equipe6Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clubs" EntityType="Self.Club" />
+          <EntitySet Name="Communications" EntityType="Self.Communication" />
+          <EntitySet Name="Competitions" EntityType="Self.Competition" />
+          <EntitySet Name="ConseilAdministrations" EntityType="Self.ConseilAdministration" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Courriels" EntityType="Self.Courriel" />
+          <EntitySet Name="DatePaiements" EntityType="Self.DatePaiement" />
+          <EntitySet Name="Entraineurs" EntityType="Self.Entraineur" />
+          <EntitySet Name="FichierComps" EntityType="Self.FichierComp" />
+          <EntitySet Name="Groupes" EntityType="Self.Groupe" />
+          <EntitySet Name="GroupeEntraineurs" EntityType="Self.GroupeEntraineur" />
+          <EntitySet Name="HoraireGroupes" EntityType="Self.HoraireGroupe" />
+          <EntitySet Name="Inscriptions" EntityType="Self.Inscription" />
+          <EntitySet Name="LiensUtiles" EntityType="Self.LiensUtile" />
+          <EntitySet Name="Niveaux" EntityType="Self.Niveau" />
+          <EntitySet Name="Offres" EntityType="Self.Offre" />
+          <EntitySet Name="Paiements" EntityType="Self.Paiement" />
+          <EntitySet Name="Partenaires" EntityType="Self.Partenaire" />
+          <EntitySet Name="Photos" EntityType="Self.Photo" />
+          <EntitySet Name="PhotoClubs" EntityType="Self.PhotoClub" />
+          <EntitySet Name="REF_ContenuTexte" EntityType="Self.REF_ContenuTexte" />
+          <EntitySet Name="REF_Jour" EntityType="Self.REF_Jour" />
+          <EntitySet Name="REF_RoleCA" EntityType="Self.REF_RoleCA" />
+          <EntitySet Name="REF_RoleEntraineur" EntityType="Self.REF_RoleEntraineur" />
+          <EntitySet Name="REF_Saison" EntityType="Self.REF_Saison" />
+          <EntitySet Name="REF_TypePaiement" EntityType="Self.REF_TypePaiement" />
+          <EntitySet Name="Secteurs" EntityType="Self.Secteur" />
+          <EntitySet Name="Sessions" EntityType="Self.Session" />
+          <EntitySet Name="Spectacles" EntityType="Self.Spectacle" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Textes" EntityType="Self.Texte" />
+          <EntitySet Name="TypeUtilisateurREFs" EntityType="Self.TypeUtilisateurREF" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
+          <EntitySet Name="FormulaireInscritptions" EntityType="Self.FormulaireInscritption" />
+          <AssociationSet Name="FK_Competition_Club" Association="Self.FK_Competition_Club">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="Competition" EntitySet="Competitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoClub_Club" Association="Self.FK_PhotoClub_Club">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="PhotoClub" EntitySet="PhotoClubs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Secteur_Club" Association="Self.FK_Secteur_Club">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="Secteur" EntitySet="Secteurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Communication_Utilisateur" Association="Self.FK_Communication_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+            <End Role="Communication" EntitySet="Communications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FichierComp_Competition" Association="Self.FK_FichierComp_Competition">
+            <End Role="Competition" EntitySet="Competitions" />
+            <End Role="FichierComp" EntitySet="FichierComps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_Competition" Association="Self.FK_Photo_Competition">
+            <End Role="Competition" EntitySet="Competitions" />
+            <End Role="Photo" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConseilAdministration_REF_RoleCA" Association="Self.FK_ConseilAdministration_REF_RoleCA">
+            <End Role="REF_RoleCA" EntitySet="REF_RoleCA" />
+            <End Role="ConseilAdministration" EntitySet="ConseilAdministrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courriel_Entraineur" Association="Self.FK_Courriel_Entraineur">
+            <End Role="Entraineur" EntitySet="Entraineurs" />
+            <End Role="Courriel" EntitySet="Courriels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DatePaiement_Session" Association="Self.FK_DatePaiement_Session">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="DatePaiement" EntitySet="DatePaiements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entraineur_Utilisateur" Association="Self.FK_Entraineur_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+            <End Role="Entraineur" EntitySet="Entraineurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeEntraineur_Groupe" Association="Self.FK_GroupeEntraineur_Groupe">
+            <End Role="Groupe" EntitySet="Groupes" />
+            <End Role="GroupeEntraineur" EntitySet="GroupeEntraineurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoraireGroupe_Groupe" Association="Self.FK_HoraireGroupe_Groupe">
+            <End Role="Groupe" EntitySet="Groupes" />
+            <End Role="HoraireGroupe" EntitySet="HoraireGroupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeEntraineur_REF_RoleEntraineur" Association="Self.FK_GroupeEntraineur_REF_RoleEntraineur">
+            <End Role="REF_RoleEntraineur" EntitySet="REF_RoleEntraineur" />
+            <End Role="GroupeEntraineur" EntitySet="GroupeEntraineurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupeEntraineur_Utilisateur" Association="Self.FK_GroupeEntraineur_Utilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+            <End Role="GroupeEntraineur" EntitySet="GroupeEntraineurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoraireGroupe_REF_Jour" Association="Self.FK_HoraireGroupe_REF_Jour">
+            <End Role="REF_Jour" EntitySet="REF_Jour" />
+            <End Role="HoraireGroupe" EntitySet="HoraireGroupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inscription_Session" Association="Self.FK_Inscription_Session">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="Inscription" EntitySet="Inscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Niveau_REF_Secteur" Association="Self.FK_Niveau_REF_Secteur">
+            <End Role="Secteur" EntitySet="Secteurs" />
+            <End Role="Niveau" EntitySet="Niveaux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paiement_REF_TypePaiement" Association="Self.FK_Paiement_REF_TypePaiement">
+            <End Role="REF_TypePaiement" EntitySet="REF_TypePaiement" />
+            <End Role="Paiement" EntitySet="Paiements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paiement_Session" Association="Self.FK_Paiement_Session">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="Paiement" EntitySet="Paiements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_REF_Saison" Association="Self.FK_Session_REF_Saison">
+            <End Role="REF_Saison" EntitySet="REF_Saison" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilisateur_TypeUtilisateurREF" Association="Self.FK_Utilisateur_TypeUtilisateurREF">
+            <End Role="TypeUtilisateurREF" EntitySet="TypeUtilisateurREFs" />
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+          </AssociationSet>
+          <FunctionImport Name="P_INSERT_photo">
+            <Parameter Name="idcompetition" Mode="In" Type="Int32" />
+            <Parameter Name="pathfichier" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(H2017_PW_Equipe6Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(H2017_PW_Equipe6Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="P_INSERT_fichierCommunication">
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="pathfichier" Mode="In" Type="String" />
+            <Parameter Name="idcommunication" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="NiveauSessions" EntityType="H2017_PW_Equipe6Model.NiveauSession" />
+          <AssociationSet Name="FK_Groupe_NiveauSession" Association="H2017_PW_Equipe6Model.FK_Groupe_NiveauSession">
+            <End Role="NiveauSession" EntitySet="NiveauSessions" />
+            <End Role="Groupe" EntitySet="Groupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NiveauSession_Niveau" Association="H2017_PW_Equipe6Model.FK_NiveauSession_Niveau">
+            <End Role="Niveau" EntitySet="Niveaux" />
+            <End Role="NiveauSession" EntitySet="NiveauSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NiveauSession_Session" Association="H2017_PW_Equipe6Model.FK_NiveauSession_Session">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="NiveauSession" EntitySet="NiveauSessions" />
+          </AssociationSet>
+          <EntitySet Name="FichierCommunications" EntityType="H2017_PW_Equipe6Model.FichierCommunication" />
+          <AssociationSet Name="FK_FichierCommunication_Communication" Association="H2017_PW_Equipe6Model.FK_FichierCommunication_Communication">
+            <End Role="Communication" EntitySet="Communications" />
+            <End Role="FichierCommunication" EntitySet="FichierCommunications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REF_RoleCA_Club" Association="H2017_PW_Equipe6Model.FK_REF_RoleCA_Club">
+            <End Role="Club" EntitySet="Clubs" />
+            <End Role="REF_RoleCA" EntitySet="REF_RoleCA" />
+          </AssociationSet>
+          <FunctionImport Name="C_SELECT_HORAIRES" ReturnType="Collection(H2017_PW_Equipe6Model.C_SELECT_HORAIRES_Result)">
+            <Parameter Name="idSecteur" Mode="In" Type="Int32" />
+            <Parameter Name="idSESSION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="C_SELECT_TARIF" ReturnType="Collection(H2017_PW_Equipe6Model.C_SELECT_TARIF_Result)">
+          <Parameter Name="typeSecteur" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Representants" EntityType="H2017_PW_Equipe6Model.Representant" />
+          <FunctionImport Name="T_SELECT_MembreSessionActiveParSecteur" ReturnType="Collection(H2017_PW_Equipe6Model.T_SELECT_MembreSessionActiveParSecteur_Result)">
+            <Parameter Name="idsecteur" Mode="In" Type="Int32" />
+            <Parameter Name="idclub" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="P_SELECT_MembreSessionActiveParSecteur" ReturnType="Collection(H2017_PW_Equipe6Model.P_SELECT_MembreSessionActiveParSecteur_Result)">
+          <Parameter Name="idsecteur" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="P_SELECT_MembreSessionActiveParNiveauSession" ReturnType="Collection(H2017_PW_Equipe6Model.P_SELECT_MembreSessionActiveParNiveauSession_Result)">
+          <Parameter Name="idniveausession" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Membres" EntityType="H2017_PW_Equipe6Model.Membre" />
+          <AssociationSet Name="FK_Paiement_Membre" Association="H2017_PW_Equipe6Model.FK_Paiement_Membre">
+            <End Role="Membre" EntitySet="Membres" />
+            <End Role="Paiement" EntitySet="Paiements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Representant_Membre" Association="H2017_PW_Equipe6Model.FK_Representant_Membre">
+            <End Role="Membre" EntitySet="Membres" />
+            <End Role="Representant" EntitySet="Representants" />
+          </AssociationSet>
+          <AssociationSet Name="GroupeMembre" Association="H2017_PW_Equipe6Model.GroupeMembre">
+            <End Role="Groupe" EntitySet="Groupes" />
+            <End Role="Membre" EntitySet="Membres" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="NiveauSession">
+          <Key>
+            <PropertyRef Name="idNIVEAU_SESSION" />
+          </Key>
+          <Property Name="idNIVEAU_SESSION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idNIVEAU" Type="Int32" Nullable="false" />
+          <Property Name="idSESSION" Type="Int32" Nullable="false" />
+          <Property Name="duree" Type="Int32" Nullable="false" />
+          <Property Name="tarif" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="affiliation" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="competitions" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="dateSuppression" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Groupes" Relationship="H2017_PW_Equipe6Model.FK_Groupe_NiveauSession" FromRole="NiveauSession" ToRole="Groupe" />
+          <NavigationProperty Name="Niveau" Relationship="H2017_PW_Equipe6Model.FK_NiveauSession_Niveau" FromRole="NiveauSession" ToRole="Niveau" />
+          <NavigationProperty Name="Session" Relationship="H2017_PW_Equipe6Model.FK_NiveauSession_Session" FromRole="NiveauSession" ToRole="Session" />
+        </EntityType>
+        <Association Name="FK_Groupe_NiveauSession">
+          <End Type="H2017_PW_Equipe6Model.NiveauSession" Role="NiveauSession" Multiplicity="1" />
+          <End Type="H2017_PW_Equipe6Model.Groupe" Role="Groupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NiveauSession">
+              <PropertyRef Name="idNIVEAU_SESSION" />
+            </Principal>
+            <Dependent Role="Groupe">
+              <PropertyRef Name="idNIVSESS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NiveauSession_Niveau">
+          <End Type="H2017_PW_Equipe6Model.Niveau" Role="Niveau" Multiplicity="1" />
+          <End Type="H2017_PW_Equipe6Model.NiveauSession" Role="NiveauSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Niveau">
+              <PropertyRef Name="idNIVEAU" />
+            </Principal>
+            <Dependent Role="NiveauSession">
+              <PropertyRef Name="idNIVEAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NiveauSession_Session">
+          <End Type="H2017_PW_Equipe6Model.Session" Role="Session" Multiplicity="1" />
+          <End Type="H2017_PW_Equipe6Model.NiveauSession" Role="NiveauSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="idSESSION" />
+            </Principal>
+            <Dependent Role="NiveauSession">
+              <PropertyRef Name="idSESSION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FichierCommunication">
+          <Key>
+            <PropertyRef Name="idFICHIERCOM" />
+          </Key>
+          <Property Name="idFICHIERCOM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pathFichier" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idCOMMUNICATION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Communication" Relationship="H2017_PW_Equipe6Model.FK_FichierCommunication_Communication" FromRole="FichierCommunication" ToRole="Communication" />
+        </EntityType>
+        <Association Name="FK_FichierCommunication_Communication">
+          <End Type="H2017_PW_Equipe6Model.Communication" Role="Communication" Multiplicity="1" />
+          <End Type="H2017_PW_Equipe6Model.FichierCommunication" Role="FichierCommunication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Communication">
+              <PropertyRef Name="idCOM" />
+            </Principal>
+            <Dependent Role="FichierCommunication">
+              <PropertyRef Name="idCOMMUNICATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REF_RoleCA_Club">
+          <End Type="H2017_PW_Equipe6Model.Club" Role="Club" Multiplicity="1" />
+          <End Type="H2017_PW_Equipe6Model.REF_RoleCA" Role="REF_RoleCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REF_RoleCA">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="C_SELECT_HORAIRES_Result">
+          <Property Type="String" Name="nomNIVEAU" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomJOUR" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="horaireDebut" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="horaireFin" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="prenomUTIL" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomUTIL" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="C_SELECT_TARIF_Result">
+          <Property Type="String" Name="nomNIVEAU" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="tarif" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="affiliation" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="competitions" Nullable="false" Precision="18" Scale="2" />
+        </ComplexType>
+        <EntityType Name="Representant">
+          <Key>
+            <PropertyRef Name="idREPRESENTANT" />
+          </Key>
+          <Property Name="idREPRESENTANT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="courriel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idMEMBRE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Membre" Relationship="H2017_PW_Equipe6Model.FK_Representant_Membre" FromRole="Representant" ToRole="Membre" />
+        </EntityType>
+        <ComplexType Name="T_SELECT_MembreSessionActiveParSecteur_Result">
+          <Property Type="String" Name="nom" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="prenom" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="sexe" Nullable="false" />
+          <Property Type="DateTime" Name="dateNaissance" Nullable="false" />
+          <Property Type="Int32" Name="numAssuranceMaladie" Nullable="false" />
+          <Property Type="String" Name="adresse" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ville" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="codePostal" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="telephone" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="courriel" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="allergie" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="codeReinscription" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="dateCourrielReinscription" Nullable="false" />
+          <Property Type="Boolean" Name="paiementEffectuer" Nullable="false" />
+          <Property Type="Int32" Name="niveauSuivant" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="P_SELECT_MembreSessionActiveParSecteur_Result">
+          <Property Type="String" Name="nom" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="prenom" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="sexe" Nullable="false" />
+          <Property Type="DateTime" Name="dateNaissance" Nullable="false" />
+          <Property Type="Int32" Name="numAssuranceMaladie" Nullable="false" />
+          <Property Type="String" Name="adresse" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ville" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="codePostal" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="telephone" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="courriel" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="allergie" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="codeReinscription" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="dateCourrielReinscription" Nullable="false" />
+          <Property Type="Boolean" Name="paiementEffectuer" Nullable="false" />
+          <Property Type="Int32" Name="niveauSuivant" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="P_SELECT_MembreSessionActiveParNiveauSession_Result">
+          <Property Type="String" Name="nom" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="prenom" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="sexe" Nullable="false" />
+          <Property Type="DateTime" Name="dateNaissance" Nullable="false" />
+          <Property Type="Int32" Name="numAssuranceMaladie" Nullable="false" />
+          <Property Type="String" Name="adresse" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ville" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="codePostal" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="telephone" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="courriel" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="allergie" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="codeReinscription" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="dateCourrielReinscription" Nullable="false" />
+          <Property Type="Boolean" Name="paiementEffectuer" Nullable="false" />
+          <Property Type="Int32" Name="niveauSuivant" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Membre">
+          <Key>
+            <PropertyRef Name="idMEMBRE" />
+          </Key>
+          <Property Name="idMEMBRE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="sexe" Type="Boolean" Nullable="false" />
+          <Property Name="dateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="numAssuranceMaladie" Type="Int32" Nullable="false" />
+          <Property Name="adresse" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ville" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="codePostal" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="courriel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="allergie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="codeReinscription" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="dateCourrielReinscription" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="paiementEffectuer" Type="Boolean" Nullable="false" />
+          <Property Name="niveauSuivant" Type="Int32" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Paiements" Relationship="H2017_PW_Equipe6Model.FK_Paiement_Membre" FromRole="Membre" ToRole="Paiement" />
+          <NavigationProperty Name="Representants" Relationship="H2017_PW_Equipe6Model.FK_Representant_Membre" FromRole="Membre" ToRole="Representant" />
+          <NavigationProperty Name="Groupes" Relationship="H2017_PW_Equipe6Model.GroupeMembre" FromRole="Membre" ToRole="Groupe" />
+        </EntityType>
+        <Association Name="FK_Paiement_Membre">
+          <End Type="H2017_PW_Equipe6Model.Membre" Role="Membre" Multiplicity="1" />
+          <End Type="H2017_PW_Equipe6Model.Paiement" Role="Paiement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="idMEMBRE" />
+            </Principal>
+            <Dependent Role="Paiement">
+              <PropertyRef Name="idMEMBRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Representant_Membre">
+          <End Type="H2017_PW_Equipe6Model.Membre" Role="Membre" Multiplicity="1" />
+          <End Type="H2017_PW_Equipe6Model.Representant" Role="Representant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="idMEMBRE" />
+            </Principal>
+            <Dependent Role="Representant">
+              <PropertyRef Name="idMEMBRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GroupeMembre">
+          <End Type="H2017_PW_Equipe6Model.Groupe" Role="Groupe" Multiplicity="*" />
+          <End Type="H2017_PW_Equipe6Model.Membre" Role="Membre" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="H2017_PW_Equipe6ModelStoreContainer" CdmEntityContainer="H2017_PW_Equipe6Entities">
+          <EntitySetMapping Name="Clubs">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Club">
+              <MappingFragment StoreEntitySet="Club">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="codePostal" ColumnName="codePostal" />
+                <ScalarProperty Name="numTelephone" ColumnName="numTelephone" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Communications">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Communication">
+              <MappingFragment StoreEntitySet="Communication">
+                <ScalarProperty Name="idCOM" ColumnName="idCOM" />
+                <ScalarProperty Name="titreCOM" ColumnName="titreCOM" />
+                <ScalarProperty Name="contenuCOM" ColumnName="contenuCOM" />
+                <ScalarProperty Name="dateCOM" ColumnName="dateCOM" />
+                <ScalarProperty Name="idUTIL" ColumnName="idUTIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competitions">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Competition">
+              <MappingFragment StoreEntitySet="Competition">
+                <ScalarProperty Name="idCOMP" ColumnName="idCOMP" />
+                <ScalarProperty Name="nomCOMP" ColumnName="nomCOMP" />
+                <ScalarProperty Name="dateDebutCOMP" ColumnName="dateDebutCOMP" />
+                <ScalarProperty Name="dateFinCOMP" ColumnName="dateFinCOMP" />
+                <ScalarProperty Name="adresseCOMP" ColumnName="adresseCOMP" />
+                <ScalarProperty Name="descriptionCOMP" ColumnName="descriptionCOMP" />
+                <ScalarProperty Name="urlFichierResultatsCOMP" ColumnName="urlFichierResultatsCOMP" />
+                <ScalarProperty Name="idCLUB" ColumnName="idCLUB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConseilAdministrations">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.ConseilAdministration">
+              <MappingFragment StoreEntitySet="ConseilAdministration">
+                <ScalarProperty Name="idCA" ColumnName="idCA" />
+                <ScalarProperty Name="nomCA" ColumnName="nomCA" />
+                <ScalarProperty Name="prenomCA" ColumnName="prenomCA" />
+                <ScalarProperty Name="descriptionCA" ColumnName="descriptionCA" />
+                <ScalarProperty Name="idROLECA" ColumnName="idROLECA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="idCON" ColumnName="idCON" />
+                <ScalarProperty Name="courrielCON" ColumnName="courrielCON" />
+                <ScalarProperty Name="nomEtablissementCON" ColumnName="nomEtablissementCON" />
+                <ScalarProperty Name="codePostaleCON" ColumnName="codePostaleCON" />
+                <ScalarProperty Name="villePostaleCON" ColumnName="villePostaleCON" />
+                <ScalarProperty Name="nomEtablissementMembreCON" ColumnName="nomEtablissementMembreCON" />
+                <ScalarProperty Name="rueMembreCON" ColumnName="rueMembreCON" />
+                <ScalarProperty Name="villeMembreCON" ColumnName="villeMembreCON" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courriels">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Courriel">
+              <MappingFragment StoreEntitySet="Courriel">
+                <ScalarProperty Name="idCourriel" ColumnName="idCourriel" />
+                <ScalarProperty Name="idENT" ColumnName="idENT" />
+                <ScalarProperty Name="dateCourriel" ColumnName="dateCourriel" />
+                <ScalarProperty Name="contenuCourriel" ColumnName="contenuCourriel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatePaiements">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.DatePaiement">
+              <MappingFragment StoreEntitySet="DatePaiement">
+                <ScalarProperty Name="idDATEPAIEMENT" ColumnName="idDATEPAIEMENT" />
+                <ScalarProperty Name="idSESSION" ColumnName="idSESSION" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entraineurs">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Entraineur">
+              <MappingFragment StoreEntitySet="Entraineur">
+                <ScalarProperty Name="idENT" ColumnName="idENT" />
+                <ScalarProperty Name="idUTIL" ColumnName="idUTIL" />
+                <ScalarProperty Name="descriptionENT" ColumnName="descriptionENT" />
+                <ScalarProperty Name="estActifENT" ColumnName="estActifENT" />
+                <ScalarProperty Name="photoENT" ColumnName="photoENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FichierComps">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.FichierComp">
+              <MappingFragment StoreEntitySet="FichierComp">
+                <ScalarProperty Name="idFICHIERCOMP" ColumnName="idFICHIERCOMP" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="pathFichier" ColumnName="pathFichier" />
+                <ScalarProperty Name="idCOMPETITION" ColumnName="idCOMPETITION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groupes">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Groupe">
+              <MappingFragment StoreEntitySet="Groupe">
+                <ScalarProperty Name="idGRP" ColumnName="idGRP" />
+                <ScalarProperty Name="idNIVSESS" ColumnName="idNIVSESS" />
+                <ScalarProperty Name="descriptionGRP" ColumnName="descriptionGRP" />
+                <ScalarProperty Name="photoGRP" ColumnName="photoGRP" />
+                <ScalarProperty Name="dateCreationGRP" ColumnName="dateCreationGRP" />
+                <ScalarProperty Name="dateSuppression" ColumnName="dateSuppression" />
+                <ScalarProperty Name="valideNiveauGRP" ColumnName="valideNiveauGRP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupeEntraineurs">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.GroupeEntraineur">
+              <MappingFragment StoreEntitySet="GroupeEntraineur">
+                <ScalarProperty Name="idGRP" ColumnName="idGRP" />
+                <ScalarProperty Name="idUTIL" ColumnName="idUTIL" />
+                <ScalarProperty Name="idRoleEnt" ColumnName="idRoleEnt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HoraireGroupes">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.HoraireGroupe">
+              <MappingFragment StoreEntitySet="HoraireGroupe">
+                <ScalarProperty Name="idHOR" ColumnName="idHOR" />
+                <ScalarProperty Name="idGRP" ColumnName="idGRP" />
+                <ScalarProperty Name="idJOUR" ColumnName="idJOUR" />
+                <ScalarProperty Name="horaireDebut" ColumnName="horaireDebut" />
+                <ScalarProperty Name="horaireFin" ColumnName="horaireFin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inscriptions">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Inscription">
+              <MappingFragment StoreEntitySet="Inscription">
+                <ScalarProperty Name="idINSCRIPTION" ColumnName="idINSCRIPTION" />
+                <ScalarProperty Name="idSESSION" ColumnName="idSESSION" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="sexe" ColumnName="sexe" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="numAssuranceMaladie" ColumnName="numAssuranceMaladie" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="casierPostal" ColumnName="casierPostal" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+                <ScalarProperty Name="allergie" ColumnName="allergie" />
+                <ScalarProperty Name="nomRepresentant1" ColumnName="nomRepresentant1" />
+                <ScalarProperty Name="prenomRepresentant1" ColumnName="prenomRepresentant1" />
+                <ScalarProperty Name="roleRepresentant1" ColumnName="roleRepresentant1" />
+                <ScalarProperty Name="courrielRepresentant1" ColumnName="courrielRepresentant1" />
+                <ScalarProperty Name="nomRepresentant2" ColumnName="nomRepresentant2" />
+                <ScalarProperty Name="prenomRepresentant2" ColumnName="prenomRepresentant2" />
+                <ScalarProperty Name="roleRepresentant2" ColumnName="roleRepresentant2" />
+                <ScalarProperty Name="courrielRepresentant2" ColumnName="courrielRepresentant2" />
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+                <ScalarProperty Name="codeReinscription" ColumnName="codeReinscription" />
+                <ScalarProperty Name="meContacter" ColumnName="meContacter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiensUtiles">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.LiensUtile">
+              <MappingFragment StoreEntitySet="LiensUtiles">
+                <ScalarProperty Name="idRES" ColumnName="idRES" />
+                <ScalarProperty Name="descriptionRES" ColumnName="descriptionRES" />
+                <ScalarProperty Name="urlRES" ColumnName="urlRES" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Niveaux">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Niveau">
+              <MappingFragment StoreEntitySet="Niveau">
+                <ScalarProperty Name="nomNIVEAU" ColumnName="nomNIVEAU" />
+                <ScalarProperty Name="idNIVEAU" ColumnName="idNIVEAU" />
+                <ScalarProperty Name="TypeSECTEUR" ColumnName="TypeSECTEUR" />
+                <ScalarProperty Name="descriptionNIVEAU" ColumnName="descriptionNIVEAU" />
+                <ScalarProperty Name="ordreAffichageNIVEAU" ColumnName="ordreAffichageNIVEAU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offres">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Offre">
+              <MappingFragment StoreEntitySet="Offre">
+                <ScalarProperty Name="idOFF" ColumnName="idOFF" />
+                <ScalarProperty Name="dateOFF" ColumnName="dateOFF" />
+                <ScalarProperty Name="titreOFF" ColumnName="titreOFF" />
+                <ScalarProperty Name="descriptionOFF" ColumnName="descriptionOFF" />
+                <ScalarProperty Name="profilOFF" ColumnName="profilOFF" />
+                <ScalarProperty Name="estActif" ColumnName="estActif" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paiements">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Paiement">
+              <MappingFragment StoreEntitySet="Paiement">
+                <ScalarProperty Name="idPAIEMENT" ColumnName="idPAIEMENT" />
+                <ScalarProperty Name="idMEMBRE" ColumnName="idMEMBRE" />
+                <ScalarProperty Name="idSESSION" ColumnName="idSESSION" />
+                <ScalarProperty Name="idTYPEPAIEMENT" ColumnName="idTYPEPAIEMENT" />
+                <ScalarProperty Name="dateSaisie" ColumnName="dateSaisie" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="encaisse" ColumnName="encaisse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partenaires">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Partenaire">
+              <MappingFragment StoreEntitySet="Partenaire">
+                <ScalarProperty Name="idPAR" ColumnName="idPAR" />
+                <ScalarProperty Name="nomPAR" ColumnName="nomPAR" />
+                <ScalarProperty Name="urlPAR" ColumnName="urlPAR" />
+                <ScalarProperty Name="logoPAR" ColumnName="logoPAR" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="idPHOTO" ColumnName="idPHOTO" />
+                <ScalarProperty Name="pathFichier" ColumnName="pathFichier" />
+                <ScalarProperty Name="idCOMPETITION" ColumnName="idCOMPETITION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoClubs">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.PhotoClub">
+              <MappingFragment StoreEntitySet="PhotoClub">
+                <ScalarProperty Name="idPHOTOCLUB" ColumnName="idPHOTOCLUB" />
+                <ScalarProperty Name="pathFichier" ColumnName="pathFichier" />
+                <ScalarProperty Name="idCLUB" ColumnName="idCLUB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REF_ContenuTexte">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.REF_ContenuTexte">
+              <MappingFragment StoreEntitySet="REF_ContenuTexte">
+                <ScalarProperty Name="idRCP" ColumnName="idRCP" />
+                <ScalarProperty Name="titreRCP" ColumnName="titreRCP" />
+                <ScalarProperty Name="refTXT" ColumnName="refTXT" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REF_Jour">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.REF_Jour">
+              <MappingFragment StoreEntitySet="REF_Jour">
+                <ScalarProperty Name="idJOUR" ColumnName="idJOUR" />
+                <ScalarProperty Name="nomJOUR" ColumnName="nomJOUR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REF_RoleCA">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.REF_RoleCA">
+              <MappingFragment StoreEntitySet="REF_RoleCA">
+                <ScalarProperty Name="idROLECA" ColumnName="idROLECA" />
+                <ScalarProperty Name="descriptionROLECA" ColumnName="descriptionROLECA" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REF_RoleEntraineur">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.REF_RoleEntraineur">
+              <MappingFragment StoreEntitySet="REF_RoleEntraineur">
+                <ScalarProperty Name="idRoleEnt" ColumnName="idRoleEnt" />
+                <ScalarProperty Name="descriptionRoleEnt" ColumnName="descriptionRoleEnt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REF_Saison">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.REF_Saison">
+              <MappingFragment StoreEntitySet="REF_Saison">
+                <ScalarProperty Name="idSAISON" ColumnName="idSAISON" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REF_TypePaiement">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.REF_TypePaiement">
+              <MappingFragment StoreEntitySet="REF_TypePaiement">
+                <ScalarProperty Name="idTYPEPAIEMENT" ColumnName="idTYPEPAIEMENT" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secteurs">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Secteur">
+              <MappingFragment StoreEntitySet="Secteur">
+                <ScalarProperty Name="idSECTEUR" ColumnName="idSECTEUR" />
+                <ScalarProperty Name="nomSECTEUR" ColumnName="nomSECTEUR" />
+                <ScalarProperty Name="descriptionSECTEUR" ColumnName="descriptionSECTEUR" />
+                <ScalarProperty Name="idCLUB" ColumnName="idCLUB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Session">
+              <MappingFragment StoreEntitySet="Session">
+                <ScalarProperty Name="idSESSION" ColumnName="idSESSION" />
+                <ScalarProperty Name="idSAISON" ColumnName="idSAISON" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="estActif" ColumnName="estActif" />
+                <ScalarProperty Name="dejaEteActif" ColumnName="dejaEteActif" />
+                <ScalarProperty Name="inscriptionEnCours" ColumnName="inscriptionEnCours" />
+                <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+                <ScalarProperty Name="detailsAncienMembre" ColumnName="detailsAncienMembre" />
+                <ScalarProperty Name="detailsNouveauMembre" ColumnName="detailsNouveauMembre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spectacles">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Spectacle">
+              <MappingFragment StoreEntitySet="Spectacle">
+                <ScalarProperty Name="idSPEC" ColumnName="idSPEC" />
+                <ScalarProperty Name="dateSPEC" ColumnName="dateSPEC" />
+                <ScalarProperty Name="heureSPEC" ColumnName="heureSPEC" />
+                <ScalarProperty Name="lieuSPEC" ColumnName="lieuSPEC" />
+                <ScalarProperty Name="titreSPEC" ColumnName="titreSPEC" />
+                <ScalarProperty Name="prixSPEC" ColumnName="prixSPEC" />
+                <ScalarProperty Name="afficheSPEC" ColumnName="afficheSPEC" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Textes">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Texte">
+              <MappingFragment StoreEntitySet="Texte">
+                <ScalarProperty Name="idTXT" ColumnName="idTXT" />
+                <ScalarProperty Name="contenuTXT" ColumnName="contenuTXT" />
+                <ScalarProperty Name="titreTXT" ColumnName="titreTXT" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeUtilisateurREFs">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.TypeUtilisateurREF">
+              <MappingFragment StoreEntitySet="TypeUtilisateurREF">
+                <ScalarProperty Name="typeUTIL" ColumnName="typeUTIL" />
+                <ScalarProperty Name="descriptionUTIL" ColumnName="descriptionUTIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="idUTIL" ColumnName="idUTIL" />
+                <ScalarProperty Name="typeUTIL" ColumnName="typeUTIL" />
+                <ScalarProperty Name="entrainerChefUTIL" ColumnName="entrainerChefUTIL" />
+                <ScalarProperty Name="nomUTIL" ColumnName="nomUTIL" />
+                <ScalarProperty Name="prenomUTIL" ColumnName="prenomUTIL" />
+                <ScalarProperty Name="courrielUTIL" ColumnName="courrielUTIL" />
+                <ScalarProperty Name="adresseUTIL" ColumnName="adresseUTIL" />
+                <ScalarProperty Name="villeUTIL" ColumnName="villeUTIL" />
+                <ScalarProperty Name="codePostalUTIL" ColumnName="codePostalUTIL" />
+                <ScalarProperty Name="telephoneUTIL" ColumnName="telephoneUTIL" />
+                <ScalarProperty Name="mdpUTIL" ColumnName="mdpUTIL" />
+                <ScalarProperty Name="dateSuppression" ColumnName="dateSuppression" />
+                <ScalarProperty Name="idCLUB" ColumnName="idCLUB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormulaireInscritptions">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.FormulaireInscritption">
+              <MappingFragment StoreEntitySet="FormulaireInscritption">
+                <ScalarProperty Name="ficheInscriptionPAR" ColumnName="ficheInscriptionPAR" />
+                <ScalarProperty Name="dateDebutInscriptionPAR" ColumnName="dateDebutInscriptionPAR" />
+                <ScalarProperty Name="dateFinInscription" ColumnName="dateFinInscription" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_INSERT_photo" FunctionName="H2017_PW_Equipe6Model.Store.P_INSERT_photo" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="H2017_PW_Equipe6Model.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="H2017_PW_Equipe6Model.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="H2017_PW_Equipe6Model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="H2017_PW_Equipe6Model.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="H2017_PW_Equipe6Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="H2017_PW_Equipe6Model.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="H2017_PW_Equipe6Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="H2017_PW_Equipe6Model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="H2017_PW_Equipe6Model.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="P_INSERT_fichierCommunication" FunctionName="H2017_PW_Equipe6Model.Store.P_INSERT_fichierCommunication" />
+          <EntitySetMapping Name="NiveauSessions">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.NiveauSession">
+              <MappingFragment StoreEntitySet="NiveauSession">
+                <ScalarProperty Name="dateSuppression" ColumnName="dateSuppression" />
+                <ScalarProperty Name="competitions" ColumnName="competitions" />
+                <ScalarProperty Name="affiliation" ColumnName="affiliation" />
+                <ScalarProperty Name="tarif" ColumnName="tarif" />
+                <ScalarProperty Name="duree" ColumnName="duree" />
+                <ScalarProperty Name="idSESSION" ColumnName="idSESSION" />
+                <ScalarProperty Name="idNIVEAU" ColumnName="idNIVEAU" />
+                <ScalarProperty Name="idNIVEAU_SESSION" ColumnName="idNIVEAU_SESSION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FichierCommunications">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.FichierCommunication">
+              <MappingFragment StoreEntitySet="FichierCommunication">
+                <ScalarProperty Name="idCOMMUNICATION" ColumnName="idCOMMUNICATION" />
+                <ScalarProperty Name="pathFichier" ColumnName="pathFichier" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="idFICHIERCOM" ColumnName="idFICHIERCOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="C_SELECT_HORAIRES" FunctionName="H2017_PW_Equipe6Model.Store.C_SELECT_HORAIRES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="H2017_PW_Equipe6Model.C_SELECT_HORAIRES_Result">
+                <ScalarProperty Name="nomNIVEAU" ColumnName="nomNIVEAU" />
+                <ScalarProperty Name="nomJOUR" ColumnName="nomJOUR" />
+                <ScalarProperty Name="horaireDebut" ColumnName="horaireDebut" />
+                <ScalarProperty Name="horaireFin" ColumnName="horaireFin" />
+                <ScalarProperty Name="prenomUTIL" ColumnName="prenomUTIL" />
+                <ScalarProperty Name="nomUTIL" ColumnName="nomUTIL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="C_SELECT_TARIF" FunctionName="H2017_PW_Equipe6Model.Store.C_SELECT_TARIF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="H2017_PW_Equipe6Model.C_SELECT_TARIF_Result">
+                <ScalarProperty Name="nomNIVEAU" ColumnName="nomNIVEAU" />
+                <ScalarProperty Name="tarif" ColumnName="tarif" />
+                <ScalarProperty Name="affiliation" ColumnName="affiliation" />
+                <ScalarProperty Name="competitions" ColumnName="competitions" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Representants">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Representant">
+              <MappingFragment StoreEntitySet="Representant">
+                <ScalarProperty Name="idMEMBRE" ColumnName="idMEMBRE" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="idREPRESENTANT" ColumnName="idREPRESENTANT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_SELECT_MembreSessionActiveParSecteur" FunctionName="H2017_PW_Equipe6Model.Store.P_SELECT_MembreSessionActiveParSecteur">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="H2017_PW_Equipe6Model.P_SELECT_MembreSessionActiveParSecteur_Result">
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="sexe" ColumnName="sexe" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="numAssuranceMaladie" ColumnName="numAssuranceMaladie" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="codePostal" ColumnName="codePostal" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+                <ScalarProperty Name="allergie" ColumnName="allergie" />
+                <ScalarProperty Name="codeReinscription" ColumnName="codeReinscription" />
+                <ScalarProperty Name="dateCourrielReinscription" ColumnName="dateCourrielReinscription" />
+                <ScalarProperty Name="paiementEffectuer" ColumnName="paiementEffectuer" />
+                <ScalarProperty Name="niveauSuivant" ColumnName="niveauSuivant" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="P_SELECT_MembreSessionActiveParNiveauSession" FunctionName="H2017_PW_Equipe6Model.Store.P_SELECT_MembreSessionActiveParNiveauSession">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="H2017_PW_Equipe6Model.P_SELECT_MembreSessionActiveParNiveauSession_Result">
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="sexe" ColumnName="sexe" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="numAssuranceMaladie" ColumnName="numAssuranceMaladie" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="codePostal" ColumnName="codePostal" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+                <ScalarProperty Name="allergie" ColumnName="allergie" />
+                <ScalarProperty Name="codeReinscription" ColumnName="codeReinscription" />
+                <ScalarProperty Name="dateCourrielReinscription" ColumnName="dateCourrielReinscription" />
+                <ScalarProperty Name="paiementEffectuer" ColumnName="paiementEffectuer" />
+                <ScalarProperty Name="niveauSuivant" ColumnName="niveauSuivant" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Membres">
+            <EntityTypeMapping TypeName="H2017_PW_Equipe6Model.Membre">
+              <MappingFragment StoreEntitySet="Membre">
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="niveauSuivant" ColumnName="niveauSuivant" />
+                <ScalarProperty Name="paiementEffectuer" ColumnName="paiementEffectuer" />
+                <ScalarProperty Name="dateCourrielReinscription" ColumnName="dateCourrielReinscription" />
+                <ScalarProperty Name="codeReinscription" ColumnName="codeReinscription" />
+                <ScalarProperty Name="allergie" ColumnName="allergie" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="codePostal" ColumnName="codePostal" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="numAssuranceMaladie" ColumnName="numAssuranceMaladie" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="sexe" ColumnName="sexe" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="idMEMBRE" ColumnName="idMEMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="GroupeMembre" TypeName="H2017_PW_Equipe6Model.GroupeMembre" StoreEntitySet="GroupeMembre">
+            <EndProperty Name="Membre">
+              <ScalarProperty Name="idMEMBRE" ColumnName="idMEMBRE" />
+            </EndProperty>
+            <EndProperty Name="Groupe">
+              <ScalarProperty Name="idGRP" ColumnName="idGROUPE" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,95 @@
+﻿@using H2017_PW_Equipe6.Models;
+
+@{
+    H2017_PW_Equipe6Entities db = new H2017_PW_Equipe6Entities();
+    int idClub = (int)ViewBag.idClub;
+    var secteurs = db.Secteurs.Where(s => s.idCLUB == idClub).ToArray();
+}
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/modern-business.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/fonts/awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="container">
+        <img src=@ViewBag.pathLogo height="120" />
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink(ViewData["nameClub"].ToString(), "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Les secteurs<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var secteur in secteurs)
+                                {
+                                    <li>@Html.ActionLink(@secteur.nomSECTEUR, "Index", "Horaire", new { id = secteur.idSECTEUR }, null) </li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Le club<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Mission et valeurs", "APropos", "Home") </li>
+                                <li>@Html.ActionLink("Communiqué", "Index", "Communication") </li>
+                                <li>@Html.ActionLink("Nos entraineurs", "Index", "Entraineur") </li>
+                                <li>@Html.ActionLink("Les secteurs", "Index", "Niveau") </li>
+                                <li>@Html.ActionLink("Le conseil d'administration", "Index", "ConseilAdministration") </li>
+                                <li>@Html.ActionLink("Nous rejoindre", "Contact", "Home") </li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Contact", "Index", "Home") </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - H2017_PW_Equipe6</p>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+    </script>
+
+</body>
+</html>

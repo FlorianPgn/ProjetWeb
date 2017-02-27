@@ -1,0 +1,24 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Entraineur>
+
+@{
+    ViewBag.Title = "Administrer - Entraineurs";
+}
+
+<div class="container">
+    <h2>Nos entraîneurs</h2>
+    
+    @foreach (var entraineur in Model)
+    {
+        <div class="col-md-4 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>@entraineur.Utilisateur.prenomUTIL @entraineur.Utilisateur.nomUTIL</h3>
+                </div>
+                <div class="panel-body">
+                    <b>@entraineur.descriptionENT</b>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

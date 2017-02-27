@@ -1,0 +1,33 @@
+﻿@using H2017_PW_Equipe6.Models;
+
+@{
+    if (ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString().ToLower() != "admin" && (ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString() == "Home" || ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString() == "Index"))
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+    }
+   
+}
+
+@{
+    H2017_PW_Equipe6Entities db = new H2017_PW_Equipe6Entities();
+    ViewContext.ViewBag.idClub = @H2017_PW_Equipe6.Properties.Settings.Default.idClub;
+    ViewContext.ViewData["imgPath"] = "../../Content/media/photo/";
+
+    ViewContext.ViewData["nameClub"] = db.Clubs.Find(ViewContext.ViewBag.idClub).nom;
+
+    int idClub = (int)ViewContext.ViewBag.idClub;
+    var photos = db.PhotoClubs.Where(p => p.idCLUB == idClub).ToArray();
+}
+
+@foreach (var photo in photos)
+{
+    if (photo.pathFichier.Contains("logo"))
+    {
+        ViewContext.ViewBag.pathLogo = ViewContext.ViewBag.imgPath + photo.pathFichier;
+        break;
+    }
+}

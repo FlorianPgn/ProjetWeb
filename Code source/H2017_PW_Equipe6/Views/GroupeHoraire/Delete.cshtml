@@ -1,0 +1,56 @@
+﻿@model H2017_PW_Equipe6.Models.HoraireGroupe
+
+@{
+    ViewBag.Title = "Supprimer un horaire de groupe";
+}
+
+<h2>Delete</h2>
+
+<h3>Voulez-vous vraiment supprimer cette enregistrement ?</h3>
+<div>
+    <h4>Horaire du groupe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.horaireDebut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horaireDebut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horaireFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horaireFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Groupe.descriptionGRP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Groupe.descriptionGRP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REF_Jour.nomJOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REF_Jour.nomJOUR)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à la liste", "Liste")
+        </div>
+    }
+</div>

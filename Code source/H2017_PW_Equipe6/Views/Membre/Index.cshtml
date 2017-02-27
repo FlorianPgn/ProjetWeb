@@ -1,0 +1,123 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Membre>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateNaissance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numAssuranceMaladie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ville)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codePostal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.courriel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allergie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codeReinscription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateCourrielReinscription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paiementEffectuer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.niveauSuivant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idClub)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sexe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateNaissance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numAssuranceMaladie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adresse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codePostal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.courriel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.allergie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codeReinscription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateCourrielReinscription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paiementEffectuer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.niveauSuivant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idClub)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMEMBRE }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMEMBRE }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMEMBRE })
+        </td>
+    </tr>
+}
+
+</table>

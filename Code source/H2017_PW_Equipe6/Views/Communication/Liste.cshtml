@@ -1,0 +1,78 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Communication>
+
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <h2>Liste</h2>
+
+    <p>
+        @Html.ActionLink("Ajouter un communiqué", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.titreCOM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contenuCOM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateCOM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utilisateur.nomUTIL)
+            </th>
+            <th></th>
+        </tr>
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titreCOM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contenuCOM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateCOM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utilisateur.nomUTIL)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.idCOM }) |
+                    @Html.ActionLink("Détails", "Details", new { id = item.idCOM }) |
+                    <a href="#" data-toggle="modal" data-target="@("#modal-Supprimer-"+ item.idCOM)">Supprimer</a>
+
+                    <div id="@("modal-Supprimer-"+ item.idCOM)" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Suppression</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Êtes vous sur de vouloir supprimer ce communiqué?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    @Html.ActionLink("Supprimer", "Delete", new { id = item.idCOM }) |
+                                    <a data-dismiss="modal">Annuler</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+

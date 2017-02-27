@@ -1,0 +1,61 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Niveau>
+
+@{
+    ViewBag.Title = "Niveau";
+}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">@ViewBag.Title</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="">Afficher</a></li>
+            <li>@Html.ActionLink("Créer un nouveau niveau", "Create", "Niveau")</li>
+
+        </ul>
+    </div>
+</nav>
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomNIVEAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descriptionNIVEAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordreAffichageNIVEAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Secteur.nomSECTEUR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomNIVEAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descriptionNIVEAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ordreAffichageNIVEAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Secteur.nomSECTEUR)
+        </td>
+        <td>
+            @Html.ActionLink("Modifer", "Edit", new { id=item.idNIVEAU }) |
+            @Html.ActionLink("Détails", "Details", new { id=item.idNIVEAU }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.idNIVEAU })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Secteur>
+
+@{
+    ViewBag.Title = "Description Secteurs";
+    ViewBag.Type = "Secteurs";
+}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid intern-nav">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">@ViewBag.Title</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Afficher</a></li>
+            <li data-toggle="modal" data-target="#useModify"><a>Modifier</a></li>
+            <li>@Html.ActionLink("Créer secteur", "Create")</li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Affichage</h2>
+    <div>
+        <h4>@ViewBag.Type</h4>
+        <hr/>
+
+        @foreach (var item in Model) {
+            <div class="dl-horizontal panel panel-default">
+                <div class="panel-heading row-fluid">
+                    <span>@Html.ActionLink("Modifier", "Edit/" + item.idSECTEUR, "Secteur", new { @class = "btn btn-default" })</span>
+                    <h5 class="col-md-10">@Html.DisplayFor(modelItem => item.nomSECTEUR)</h5>
+                    <span>@Html.ActionLink("Supprimer", "Delete/" + item.idSECTEUR, "Secteur", new { @class = " btn btn-danger" })</span>
+                </div>
+                <div class="panel-body">
+                    <dl>
+                        <dt>@Html.DisplayNameFor(model => model.descriptionSECTEUR)</dt>
+                        <dd>@Html.DisplayFor(modelItem => item.descriptionSECTEUR)</dd>
+                    </dl>
+                </div>
+            </div>
+        }
+    </div>
+    <hr />
+    <p>
+        @Html.ActionLink("Edit", "Edit") |
+        @Html.ActionLink("Retour à l'affichage", "Details")
+    </p>
+</div>
+
+<div id="useModify" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Non disponible</h4>
+            </div>
+            <div class="modal-body">
+                <p>Pour modifier une description, veuillez utiliser un des boutons ci-dessous.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

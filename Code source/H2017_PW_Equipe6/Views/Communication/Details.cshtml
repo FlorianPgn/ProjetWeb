@@ -1,0 +1,62 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Communication>
+
+@{
+    ViewBag.Title = "Liste des communiqués";
+    ViewBag.Type = "Communiqués";
+}
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid intern-nav">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">@ViewBag.Title</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Nouveau communiqué", "Create")</li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Affichage</h2>
+    <h3>@ViewBag.Type</h3>
+    <hr />
+    
+    @foreach(var communication in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="pull-right">
+                    <a class="btn btn-default" href="#" data-toggle="modal" data-target="@("#modal-modifier-"+ communication.idCOM)">Modifier</a>
+                    <a class="btn btn-danger" href="#" data-toggle="modal" data-target="@("#modal-supprimer-"+ communication.idCOM)">Supprimer</a>
+                </div>
+                <h4>@communication.titreCOM</h4>
+            </div>
+            <div class="panel-body">
+                <p>@communication.contenuCOM</p>
+            </div>
+
+            <div id="@("modal-modifier-"+ communication.idCOM)" class="modal fade" role="dialog">
+                @Html.Partial("_ModalEdit", communication)
+            </div>
+
+            <div id="@("modal-supprimer-"+ communication.idCOM)" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Suppression - @communication.titreCOM</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Êtes vous sur de vouloir supprimer ce communiqué?</p>
+                        </div>
+                        <div class="modal-footer">
+                            @Html.ActionLink("Supprimer", "Delete", new { id = communication.idCOM }, new { @class = "btn btn-danger" })
+                            <a class="btn btn-default" data-dismiss="modal">Annuler</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

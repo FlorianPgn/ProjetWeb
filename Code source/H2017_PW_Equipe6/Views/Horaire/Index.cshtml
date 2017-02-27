@@ -1,0 +1,106 @@
+﻿@model IEnumerable<H2017_PW_Equipe6.Models.Secteur>
+
+@{var db = new H2017_PW_Equipe6.Models.H2017_PW_Equipe6Entities();}
+@{var resultats = db.C_SELECT_HORAIRES((int)ViewData["idSecteur"] ,1);
+  var tarif = db.C_SELECT_TARIF((int)ViewData["idSecteur"]);
+  var secteur = db.Secteurs.Find((int)ViewData["idSecteur"]); }
+  
+@{
+    ViewBag.Title = "Horaire du " + secteur.nomSECTEUR;
+}
+
+<div class="container">
+    <br />
+
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>
+                        @secteur.nomSECTEUR
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p>@secteur.descriptionSECTEUR</p>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<div class="container">
+    <h2>Horaire</h2>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                Groupe
+            </th>
+            <th>
+                Horaire
+            </th>
+            <th>
+                Entraineur
+            </th>
+        </tr>
+        @foreach (var res in resultats)
+        {
+            <tr>
+                <td>
+                    @res.nomNIVEAU
+                </td>
+                <td>
+                    @res.nomJOUR de @res.horaireDebut à @res.horaireFin
+                </td>
+                <td>
+                    @res.prenomUTIL @res.nomUTIL
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="container">
+    <h2>Tarif</h2>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                Niveau
+            </th>
+            <th>
+                Tarif
+            </th>
+            <th>
+                Affiliation
+            </th>
+            <th>
+                Compétitions
+            </th>
+            <th>
+                Total à payer
+            </th>
+        </tr>
+        @foreach (var item in tarif)
+        {
+            <tr>
+                <td>
+                    @item.nomNIVEAU
+                </td>
+                <td>
+                    @item.tarif $
+                </td>
+                <td>
+                    @item.affiliation $
+                </td>
+                <td>
+                    @item.competitions $ 
+                </td>
+                <td>
+                    @{decimal total = @item.tarif + @item.affiliation + @item.competitions;}
+                    @total $
+                </td>
+            </tr>
+        }
+    </table>
+</div>
